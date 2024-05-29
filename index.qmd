@@ -1,0 +1,13 @@
+---
+title: "Home"
+---
+
+## Welcome
+
+- 2024년 1학기 카이스트 공학생물학대학원 설계제작 강의 노트 
+- github site: https://github.com/greendaygh/kaist_design_build_2024
+- website: https://greendaygh.github.io/kaist_design_build_2024/
+
+## 환경
+
+- 실습 환경은 colab을 활용하며 파일 저장 등은 구글 드라이브 활용 

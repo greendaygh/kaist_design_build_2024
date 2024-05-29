@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "KAIST Design, Build"
+  reader-mode: true
+  author: "Haseong"
+  date: "2024-05-30"
+  page-footer: 
+    left: | 
+      2024 lecture note written by Haseong Kim
+    right: | 
+      This book was built with Quarto
+  chapters:
+    - index.qmd
+    - design.ipynb
+  
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+
