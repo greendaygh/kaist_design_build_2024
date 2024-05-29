@@ -177,10 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#primers" id="toc-primers" class="nav-link" data-scroll-target="#primers"><span class="header-section-number">2.3</span> Primers</a></li>
   <li><a href="#pydna" id="toc-pydna" class="nav-link" data-scroll-target="#pydna"><span class="header-section-number">2.4</span> pydna</a></li>
   <li><a href="#parts" id="toc-parts" class="nav-link" data-scroll-target="#parts"><span class="header-section-number">2.5</span> Parts</a></li>
-  <li><a href="#golden-gate-assembly" id="toc-golden-gate-assembly" class="nav-link" data-scroll-target="#golden-gate-assembly"><span class="header-section-number">2.6</span> Golden gate assembly</a>
-  <ul class="collapse">
-  <li><a href="#snapgene-read" id="toc-snapgene-read" class="nav-link" data-scroll-target="#snapgene-read"><span class="header-section-number">2.6.1</span> snapgene read</a></li>
-  </ul></li>
+  <li><a href="#golden-gate-assembly" id="toc-golden-gate-assembly" class="nav-link" data-scroll-target="#golden-gate-assembly"><span class="header-section-number">2.6</span> Golden gate assembly</a></li>
   </ul>
 </nav>
     </div>
@@ -221,26 +218,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'/content/drive/MyDrive/design_build'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cell-4" class="cell" data-execution_count="125">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pwd</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget https:<span class="op">//</span>media.addgene.org<span class="op">/</span>snapgene<span class="op">-</span>media<span class="op">/</span>v1<span class="fl">.7.9</span><span class="op">-</span><span class="dv">0</span><span class="op">-</span>g88a3305<span class="op">/</span>sequences<span class="op">/</span><span class="dv">222046</span><span class="op">/</span><span class="dv">51</span><span class="er">c2cfab</span><span class="op">-</span>a3b4<span class="op">-</span><span class="dv">4</span><span class="er">d62</span><span class="op">-</span><span class="dv">98</span><span class="er">df</span><span class="op">-</span><span class="dv">0</span><span class="er">c77ec21164e</span><span class="op">/</span>addgene<span class="op">-</span>plasmid<span class="op">-</span><span class="dv">50005</span><span class="op">-</span>sequence<span class="op">-</span><span class="fl">222046.</span><span class="er">gbk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>/home/haseong/dev/design_build_python
---2024-05-29 11:03:00--  https://media.addgene.org/snapgene-media/v1.7.9-0-g88a3305/sequences/222046/51c2cfab-a3b4-4d62-98df-0c77ec21164e/addgene-plasmid-50005-sequence-222046.gbk
-Resolving media.addgene.org (media.addgene.org)... 172.66.40.66, 172.66.43.190, 2606:4700:3108::ac42:2bbe, ...
-Connecting to media.addgene.org (media.addgene.org)|172.66.40.66|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 8623 (8.4K) [application/octet-stream]
-Saving to: ‘addgene-plasmid-50005-sequence-222046.gbk’
-
-addgene-plasmid-500 100%[===================&gt;]   8.42K  --.-KB/s    in 0s      
-
-2024-05-29 11:03:00 (257 MB/s) - ‘addgene-plasmid-50005-sequence-222046.gbk’ saved [8623/8623]
-</code></pre>
-</div>
-</div>
+<pre class="shell"><code>!pwd
+!wget https://media.addgene.org/snapgene-media/v1.7.9-0-g88a3305/sequences/222046/51c2cfab-a3b4-4d62-98df-0c77ec21164e/addgene-plasmid-50005-sequence-222046.gbk</code></pre>
 <div id="cell-5" class="cell" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>README.md                  data      seq_analysis.ipynb
 addgene-plasmid-50005-sequence-222046.gbk  design.ipynb  synbio
@@ -254,22 +235,22 @@ build.ipynb                images</code></pre>
 <h2 data-number="2.2" class="anchored" data-anchor-id="biopython"><span class="header-section-number">2.2</span> Biopython</h2>
 <p><a href="https://biopython.org/">Biopython</a> is a collection of freely available Python tools for computational biology and bioinformatics.</p>
 <div id="cell-9" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio <span class="im">import</span> SeqIO</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>records <span class="op">=</span> SeqIO.read(<span class="st">"addgene-plasmid-50005-sequence-222046.gbk"</span>, <span class="st">"genbank"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> []</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature <span class="kw">in</span> records.features:</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    features.append({</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Label"</span>: feature.qualifiers.get(<span class="st">"label"</span>, [<span class="st">""</span>])[<span class="dv">0</span>],</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Strand"</span>: feature.strand,</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Start"</span>: feature.location.start,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"End"</span>: feature.location.end, </span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Type"</span>: feature.<span class="bu">type</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(features)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>DataFrame(features)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio <span class="im">import</span> SeqIO</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>records <span class="op">=</span> SeqIO.read(<span class="st">"addgene-plasmid-50005-sequence-222046.gbk"</span>, <span class="st">"genbank"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> []</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature <span class="kw">in</span> records.features:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    features.append({</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Label"</span>: feature.qualifiers.get(<span class="st">"label"</span>, [<span class="st">""</span>])[<span class="dv">0</span>],</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Strand"</span>: feature.strand,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Start"</span>: feature.location.start,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"End"</span>: feature.location.end, </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Type"</span>: feature.<span class="bu">type</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(features)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>DataFrame(features)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[{'Label': '', 'Strand': 1, 'Start': ExactPosition(0), 'End': ExactPosition(2686), 'Type': 'source'}, {'Label': 'pBR322ori-F', 'Strand': 1, 'Start': ExactPosition(117), 'End': ExactPosition(137), 'Type': 'primer_bind'}, {'Label': 'L4440', 'Strand': 1, 'Start': ExactPosition(370), 'End': ExactPosition(388), 'Type': 'primer_bind'}, {'Label': 'CAP binding site', 'Strand': 1, 'Start': ExactPosition(504), 'End': ExactPosition(526), 'Type': 'protein_bind'}, {'Label': 'lac promoter', 'Strand': 1, 'Start': ExactPosition(540), 'End': ExactPosition(571), 'Type': 'promoter'}, {'Label': 'lac operator', 'Strand': 1, 'Start': ExactPosition(578), 'End': ExactPosition(595), 'Type': 'protein_bind'}, {'Label': 'M13/pUC Reverse', 'Strand': 1, 'Start': ExactPosition(583), 'End': ExactPosition(606), 'Type': 'primer_bind'}, {'Label': 'M13 rev', 'Strand': 1, 'Start': ExactPosition(602), 'End': ExactPosition(619), 'Type': 'primer_bind'}, {'Label': 'M13 Reverse', 'Strand': 1, 'Start': ExactPosition(602), 'End': ExactPosition(619), 'Type': 'primer_bind'}, {'Label': 'lacZ-alpha', 'Strand': 1, 'Start': ExactPosition(614), 'End': ExactPosition(938), 'Type': 'CDS'}, {'Label': 'MCS', 'Strand': 1, 'Start': ExactPosition(631), 'End': ExactPosition(688), 'Type': 'misc_feature'}, {'Label': 'M13 Forward', 'Strand': -1, 'Start': ExactPosition(688), 'End': ExactPosition(706), 'Type': 'primer_bind'}, {'Label': 'M13 fwd', 'Strand': -1, 'Start': ExactPosition(688), 'End': ExactPosition(705), 'Type': 'primer_bind'}, {'Label': 'M13/pUC Forward', 'Strand': -1, 'Start': ExactPosition(697), 'End': ExactPosition(720), 'Type': 'primer_bind'}, {'Label': 'pRS-marker', 'Strand': -1, 'Start': ExactPosition(913), 'End': ExactPosition(933), 'Type': 'primer_bind'}, {'Label': "pGEX 3'", 'Strand': 1, 'Start': ExactPosition(1032), 'End': ExactPosition(1055), 'Type': 'primer_bind'}, {'Label': 'pBRforEco', 'Strand': -1, 'Start': ExactPosition(1092), 'End': ExactPosition(1111), 'Type': 'primer_bind'}, {'Label': 'AmpR promoter', 'Strand': 1, 'Start': ExactPosition(1178), 'End': ExactPosition(1283), 'Type': 'promoter'}, {'Label': 'AmpR', 'Strand': 1, 'Start': ExactPosition(1283), 'End': ExactPosition(2144), 'Type': 'CDS'}, {'Label': 'Amp-R', 'Strand': -1, 'Start': ExactPosition(1501), 'End': ExactPosition(1521), 'Type': 'primer_bind'}, {'Label': 'ori', 'Strand': 1, 'Start': ExactPosition(0), 'End': ExactPosition(2686), 'Type': 'rep_origin'}]</code></pre>
 </div>
@@ -476,24 +457,24 @@ build.ipynb                images</code></pre>
 <h2 data-number="2.3" class="anchored" data-anchor-id="primers"><span class="header-section-number">2.3</span> Primers</h2>
 <p><a href="https://github.com/Lattice-Automation/primers">primers</a> It is uniquely focused on DNA assembly flows like Gibson Assembly and Golden Gate cloning. You can design primers while adding sequence to the 5’ ends of primers.</p>
 <div id="cell-12" class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create, primers</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> sample, choices</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>myseq_list <span class="op">=</span> choices([<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>], k<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>myseq <span class="op">=</span> <span class="st">""</span>.join(myseq_list)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myseq)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(myseq, add_fwd <span class="op">=</span> <span class="st">"GGGG"</span>, add_rev <span class="op">=</span> <span class="st">"TTTT"</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># p1, p2 = primers(myseq, add_fwd = "GGGG", add_rev = "TTTT")</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fwd)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rev)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">## display table form</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>DataFrame(<span class="bu">list</span>(fwd.<span class="bu">dict</span>().values())[:<span class="op">-</span><span class="dv">1</span>], index <span class="op">=</span> <span class="bu">list</span>(rev.<span class="bu">dict</span>().keys())[:<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">## default argument values </span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>create</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create, primers</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> sample, choices</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>myseq_list <span class="op">=</span> choices([<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>], k<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>myseq <span class="op">=</span> <span class="st">""</span>.join(myseq_list)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myseq)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(myseq, add_fwd <span class="op">=</span> <span class="st">"GGGG"</span>, add_rev <span class="op">=</span> <span class="st">"TTTT"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># p1, p2 = primers(myseq, add_fwd = "GGGG", add_rev = "TTTT")</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fwd)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rev)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">## display table form</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>DataFrame(<span class="bu">list</span>(fwd.<span class="bu">dict</span>().values())[:<span class="op">-</span><span class="dv">1</span>], index <span class="op">=</span> <span class="bu">list</span>(rev.<span class="bu">dict</span>().keys())[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">## default argument values </span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>create</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GTTTTCGTCCCAGCGACGGACTCAGTCGCAGCTGTTTATTTCTGTAGTGTCGGTATGAATATTGATTAGTCAGGGTTACTGGTCCAGGATCTTTTGTCAT
 Primer(seq='GGGGGTTTTCGTCCCAGCGA', len=20, tm=62.7, tm_total=71.3, gc=0.7, dg=-0.71, fwd=True, off_target_count=0, scoring=Scoring(penalty=9.1, penalty_tm=0.7, penalty_tm_diff=0, penalty_gc=4.0, penalty_len=3.0, penalty_dg=1.4, penalty_off_target=0.0))
@@ -511,33 +492,33 @@ Primer(seq='TTTTATGACAAAAGATCCTGGACC', len=24, tm=62.5, tm_total=63.2, gc=0.4, d
 <li>offtarget</li>
 </ul>
 <div id="cell-15" class="cell" data-execution_count="116">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> choices</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_primer_info(x):</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> DataFrame(<span class="bu">list</span>(x.<span class="bu">dict</span>().values())[:<span class="op">-</span><span class="dv">1</span>], index <span class="op">=</span> <span class="bu">list</span>(x.<span class="bu">dict</span>().keys())[:<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>primer_binding_seq <span class="op">=</span> <span class="st">"GTCATATGCATTCGATGCGTTAGG"</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>rnd_seq1 <span class="op">=</span> <span class="st">""</span>.join(choices([<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>], k<span class="op">=</span><span class="dv">100</span>))</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>rnd_seq2 <span class="op">=</span> <span class="st">""</span>.join(choices([<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>], k<span class="op">=</span><span class="dv">100</span>))</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>myseq <span class="op">=</span> primer_binding_seq<span class="op">+</span>rnd_seq1</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myseq)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(myseq)</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(myseq)</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>print_primer_info(fwd)</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co">## primer considering offtargets</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>myseq2 <span class="op">=</span> primer_binding_seq<span class="op">+</span>rnd_seq1<span class="op">+</span>primer_binding_seq<span class="op">+</span>rnd_seq2</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>fwd2, rev <span class="op">=</span> create(myseq2)</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>print_primer_info(fwd2)</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co">## optimal_tm is ignored </span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>fwd2, rev <span class="op">=</span> create(myseq2, optimal_tm <span class="op">=</span> <span class="dv">62</span>)</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>print_primer_info(fwd2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> choices</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_primer_info(x):</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> DataFrame(<span class="bu">list</span>(x.<span class="bu">dict</span>().values())[:<span class="op">-</span><span class="dv">1</span>], index <span class="op">=</span> <span class="bu">list</span>(x.<span class="bu">dict</span>().keys())[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>primer_binding_seq <span class="op">=</span> <span class="st">"GTCATATGCATTCGATGCGTTAGG"</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>rnd_seq1 <span class="op">=</span> <span class="st">""</span>.join(choices([<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>], k<span class="op">=</span><span class="dv">100</span>))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>rnd_seq2 <span class="op">=</span> <span class="st">""</span>.join(choices([<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>], k<span class="op">=</span><span class="dv">100</span>))</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>myseq <span class="op">=</span> primer_binding_seq<span class="op">+</span>rnd_seq1</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myseq)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(myseq)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(myseq)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>print_primer_info(fwd)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">## primer considering offtargets</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>myseq2 <span class="op">=</span> primer_binding_seq<span class="op">+</span>rnd_seq1<span class="op">+</span>primer_binding_seq<span class="op">+</span>rnd_seq2</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>fwd2, rev <span class="op">=</span> create(myseq2)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>print_primer_info(fwd2)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co">## optimal_tm is ignored </span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>fwd2, rev <span class="op">=</span> create(myseq2, optimal_tm <span class="op">=</span> <span class="dv">62</span>)</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>print_primer_info(fwd2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GTCATATGCATTCGATGCGTTAGGCGTACTTGAGCCGTTGGGTTGTCTTAGGTTGTTGGCTGCTCAGAGCTCTGGCCAGGTCGCGTCGGTTCAGTTGTATCTAAGCTGCATTGCTGCTGAGCTG
                                      0
@@ -576,10 +557,10 @@ off_target_count                            0</code></pre>
 <li><a href="https://github.com/BjornFJohansson/pydna">pyDNA</a> The pydna python package provide a human-readable formal descriptions of 🧬 cloning and genetic assembly strategies in Python 🐍 which allow for simulation and verification.</li>
 </ul>
 <div id="cell-17" class="cell" data-execution_count="121">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.dseqrecord <span class="im">import</span> Dseqrecord</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>dsr <span class="op">=</span> Dseqrecord(<span class="st">"ATGCGTTGC"</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>dsr.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.dseqrecord <span class="im">import</span> Dseqrecord</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>dsr <span class="op">=</span> Dseqrecord(<span class="st">"ATGCGTTGC"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dsr.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="121">
 <div class="ansi-escaped-output">
 <pre>Dseqrecord(-9)
@@ -589,10 +570,10 @@ TACGCAACG</pre>
 </div>
 </div>
 <div id="cell-18" class="cell" data-execution_count="122">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> read(<span class="st">"addgene-plasmid-50005-sequence-222046.gbk"</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>p.list_features()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> read(<span class="st">"addgene-plasmid-50005-sequence-222046.gbk"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>p.list_features()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="122">
 <div>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
@@ -825,8 +806,8 @@ TACGCAACG</pre>
 </div>
 </div>
 <div id="cell-19" class="cell" data-execution_count="123">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>extracted_site <span class="op">=</span> p.extract_feature(<span class="dv">10</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>extracted_site.seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>extracted_site <span class="op">=</span> p.extract_feature(<span class="dv">10</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>extracted_site.seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="123">
 <pre><code>Dseq(-57)
 AAGC..ATTC
@@ -863,15 +844,15 @@ TTCG..TAAG</code></pre>
 <section id="golden-gate-assembly" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="golden-gate-assembly"><span class="header-section-number">2.6</span> Golden gate assembly</h2>
 <div id="cell-27" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>egfp <span class="op">=</span> read(<span class="st">"data/parts/pUC19-egfp.gb"</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>promoter <span class="op">=</span> read(<span class="st">"data/parts/pUC19-J23100.gb"</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>terminator <span class="op">=</span> read(<span class="st">"data/parts/pUC19-L2U3H03.gb"</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>rbs <span class="op">=</span> read(<span class="st">"data/parts/pUC19-RB0030.gb"</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>egfp_feature_list <span class="op">=</span> egfp.list_features()</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>egfp_feature_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>egfp <span class="op">=</span> read(<span class="st">"data/parts/pUC19-egfp.gb"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>promoter <span class="op">=</span> read(<span class="st">"data/parts/pUC19-J23100.gb"</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>terminator <span class="op">=</span> read(<span class="st">"data/parts/pUC19-L2U3H03.gb"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>rbs <span class="op">=</span> read(<span class="st">"data/parts/pUC19-RB0030.gb"</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>egfp_feature_list <span class="op">=</span> egfp.list_features()</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>egfp_feature_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
 'LOCUS       pUC19-egfp        3371 bp DNA     circular SYN 18-MAY-2024\n'
@@ -1216,17 +1197,17 @@ Some fields may be wrong.
 </div>
 </div>
 <div id="cell-28" class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create, primers</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>myseq <span class="op">=</span> egfp.extract_feature(<span class="dv">13</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(myseq.seq)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(myseq.seq), add_fwd <span class="op">=</span> <span class="st">"GGGG"</span>, add_rev <span class="op">=</span> <span class="st">"TTTT"</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fwd)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, egfp.extract_feature(<span class="dv">13</span>))</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>pcr_product.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create, primers</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>myseq <span class="op">=</span> egfp.extract_feature(<span class="dv">13</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(myseq.seq)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(myseq.seq), add_fwd <span class="op">=</span> <span class="st">"GGGG"</span>, add_rev <span class="op">=</span> <span class="st">"TTTT"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fwd)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, egfp.extract_feature(<span class="dv">13</span>))</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>pcr_product.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Primer(seq='GGGGATGGTGAGCAAGGGCG', len=20, tm=65.1, tm_total=72.1, gc=0.7, dg=0, fwd=True, off_target_count=0, scoring=Scoring(penalty=10.1, penalty_tm=3.1, penalty_tm_diff=0, penalty_gc=4.0, penalty_len=3.0, penalty_dg=0.0, penalty_off_target=0.0))</code></pre>
 </div>
@@ -1240,20 +1221,20 @@ Some fields may be wrong.
 </div>
 </div>
 <div id="cell-29" class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>frag1 <span class="op">=</span> egfp.extract_feature(<span class="dv">10</span>)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>frag2 <span class="op">=</span> egfp.extract_feature(<span class="dv">12</span>)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>frag3 <span class="op">=</span> egfp.extract_feature(<span class="dv">13</span>)</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>frag4 <span class="op">=</span> egfp.extract_feature(<span class="dv">18</span>)</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>frag5 <span class="op">=</span> egfp.extract_feature(<span class="dv">19</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>targetseq <span class="op">=</span> frag1<span class="op">+</span>frag2<span class="op">+</span>frag3<span class="op">+</span>frag4<span class="op">+</span>frag5</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(targetseq.seq))</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, targetseq)</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>pcr_product.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>frag1 <span class="op">=</span> egfp.extract_feature(<span class="dv">10</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>frag2 <span class="op">=</span> egfp.extract_feature(<span class="dv">12</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>frag3 <span class="op">=</span> egfp.extract_feature(<span class="dv">13</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>frag4 <span class="op">=</span> egfp.extract_feature(<span class="dv">18</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>frag5 <span class="op">=</span> egfp.extract_feature(<span class="dv">19</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>targetseq <span class="op">=</span> frag1<span class="op">+</span>frag2<span class="op">+</span>frag3<span class="op">+</span>frag4<span class="op">+</span>frag5</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(targetseq.seq))</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, targetseq)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>pcr_product.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="88">
 <pre><code>5GGTCTCAGTCAATGGTGA...TACAAGTAAGGGATGAGACC3
                       ||||||||||||||||||||
@@ -1263,85 +1244,37 @@ Some fields may be wrong.
 3CCAGAGTCAGTTACCACT...ATGTTCATTCCCTACTCTGG5</code></pre>
 </div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="93">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Restriction <span class="im">import</span> BsaI</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>cut_product <span class="op">=</span> pcr_product.cut(BsaI)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(cut_product)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="93">
+<div id="cell-30" class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Restriction <span class="im">import</span> BsaI</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>cut_product <span class="op">=</span> pcr_product.cut(BsaI)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(cut_product))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>cut_product[<span class="dv">0</span>].figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
 </div>
-</div>
-<div id="cell-31" class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.gel <span class="im">import</span> gel</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.ladders <span class="im">import</span> GeneRuler_1kb_plus</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.dseqrecord <span class="im">import</span> Dseqrecord</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>AttributeError: 'str' object has no attribute 'm'</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="99">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-11)
+<span class="ansi-bright-yellow-bg">GGTCTCA</span>    
+CCAGAGTCAGT</pre>
 </div>
 </div>
-<section id="snapgene-read" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="snapgene-read"><span class="header-section-number">2.6.1</span> snapgene read</h3>
-<div id="cell-33" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snapgene_reader <span class="im">import</span> snapgene_file_to_dict, snapgene_file_to_seqrecord</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Seq <span class="im">import</span> Seq</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.SeqUtils <span class="im">import</span> MeltingTemp <span class="im">as</span> mt</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.SeqUtils <span class="im">import</span> gc_fraction</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.SeqRecord <span class="im">import</span> SeqRecord</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.SeqFeature <span class="im">import</span> SeqFeature, FeatureLocation</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># data = snapgene_file_to_seqrecord("data/hs/pACBB-lycopene_vector.dna")</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># type(data)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-34" class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio <span class="im">import</span> SeqIO</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>record <span class="op">=</span> SeqIO.read(<span class="st">"data/hs/pACBB-lycopene_vector.dna"</span>, <span class="st">"snapgene"</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">## convert the list of record.features  to pandas dataframe </span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> DataFrame([feature.qualifiers <span class="cf">for</span> feature <span class="kw">in</span> record.features])</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>df.shape</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>record.features[<span class="dv">0</span>]</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co">## filtering CDS from record</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>cds <span class="op">=</span> [feature <span class="cf">for</span> feature <span class="kw">in</span> record.features <span class="cf">if</span> feature.<span class="bu">type</span> <span class="op">==</span> <span class="st">"CDS"</span>]</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="co">## extract positions</span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>positions <span class="op">=</span> [feature.location.start <span class="cf">for</span> feature <span class="kw">in</span> cds]</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>positions[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-35" class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read_snapgene_file("data/hs/pACBB-lycopene_vector.dna")</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> snapgene_file_to_dict(<span class="st">"data/hs/pACBB-lycopene_vector.dna"</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data.keys()</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># data["seq"]</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"features"</span>]</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>myseqrec <span class="op">=</span> SeqRecord(</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"seq"</span>],</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span><span class="op">=</span><span class="st">"pACBB-lycopene_vector"</span>,</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"pACBB-lycopene_vector"</span>,</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    description<span class="op">=</span><span class="st">"pACBB-lycopene_vector"</span></span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co"># myseqrec.features.append(SeqFeature(data["features"])) </span></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>SeqFeature(data[<span class="st">"features"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-36" class="cell" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio <span class="im">import</span> SeqIO</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>record <span class="op">=</span> SeqIO.read(<span class="st">"data/hs/addgene-plasmid-32548-sequence-37547.gbk"</span>, <span class="st">"gb"</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>record.features[<span class="dv">1</span>].extract(record).seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="64">
-<pre><code>Seq('AGCGAGTCAGTGAGCGAG')</code></pre>
+<div id="cell-31" class="cell" data-execution_count="115">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.assembly <span class="im">import</span> Assembly</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.common_sub_strings <span class="im">import</span> terminal_overlap</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>asm <span class="op">=</span> Assembly((cut_product[<span class="dv">0</span>], cut_product[<span class="dv">1</span>], cut_product[<span class="dv">2</span>]), algorithm <span class="op">=</span> terminal_overlap, limit <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>candidate <span class="op">=</span> asm.assemble_linear()</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>candidate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="115">
+<pre><code>[Contig(-742)]</code></pre>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
