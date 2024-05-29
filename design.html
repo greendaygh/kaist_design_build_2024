@@ -843,7 +843,7 @@ TTCG..TAAG</code></pre>
 </section>
 <section id="golden-gate-assembly" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="golden-gate-assembly"><span class="header-section-number">2.6</span> Golden gate assembly</h2>
-<div id="cell-27" class="cell" data-execution_count="6">
+<div id="cell-27" class="cell" data-execution_count="116">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>egfp <span class="op">=</span> read(<span class="st">"data/parts/pUC19-egfp.gb"</span>)</span>
@@ -875,7 +875,7 @@ Found locus 'pUC19-R-B0030' size '2750' residue_type 'DNA'
 Some fields may be wrong.
   warnings.warn(</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="116">
 <div>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
@@ -1196,7 +1196,10 @@ Some fields may be wrong.
 </div>
 </div>
 </div>
-<div id="cell-28" class="cell" data-execution_count="73">
+<ul>
+<li>Primers for egfp</li>
+</ul>
+<div id="cell-29" class="cell" data-execution_count="118">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create, primers</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1211,7 +1214,7 @@ Some fields may be wrong.
 <div class="cell-output cell-output-stdout">
 <pre><code>Primer(seq='GGGGATGGTGAGCAAGGGCG', len=20, tm=65.1, tm_total=72.1, gc=0.7, dg=0, fwd=True, off_target_count=0, scoring=Scoring(penalty=10.1, penalty_tm=3.1, penalty_tm_diff=0, penalty_gc=4.0, penalty_len=3.0, penalty_dg=0.0, penalty_off_target=0.0))</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div class="cell-output cell-output-display" data-execution_count="118">
 <pre><code>    5ATGGTGAGCAAGGGCG...CATGGACGAGCTGTACAAGTAA3
                         ||||||||||||||||||||||
                        3GTACCTGCTCGACATGTTCATTTTTT5
@@ -1220,7 +1223,12 @@ Some fields may be wrong.
     3TACCACTCGTTCCCGC...GTACCTGCTCGACATGTTCATT5</code></pre>
 </div>
 </div>
-<div id="cell-29" class="cell" data-execution_count="88">
+<ul>
+<li>Target sequence including overhang and BsaI site</li>
+<li>Generate primers</li>
+<li>PCR the target sequence</li>
+</ul>
+<div id="cell-31" class="cell" data-execution_count="126">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1235,7 +1243,7 @@ Some fields may be wrong.
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, targetseq)</span>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>pcr_product.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="88">
+<div class="cell-output cell-output-display" data-execution_count="126">
 <pre><code>5GGTCTCAGTCAATGGTGA...TACAAGTAAGGGATGAGACC3
                       ||||||||||||||||||||
                      3ATGTTCATTCCCTACTCTGG5
@@ -1244,33 +1252,66 @@ Some fields may be wrong.
 3CCAGAGTCAGTTACCACT...ATGTTCATTCCCTACTCTGG5</code></pre>
 </div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="99">
+<div id="cell-32" class="cell" data-execution_count="132">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Restriction <span class="im">import</span> BsaI</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>cut_product <span class="op">=</span> pcr_product.cut(BsaI)</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(cut_product))</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>cut_product[<span class="dv">0</span>].figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cut_product[<span class="dv">0</span>].figure())</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cut_product[<span class="dv">2</span>].figure())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>3</code></pre>
+<pre><code>3
+Dseqrecord(-11)
+GGTCTCA    
+CCAGAGTCAGT
+
+Dseqrecord(-728)
+GTCAATGGTGAGCAAGGGCGAGGAGCTGTTCACCGGGGTGGTGCCCATCCTGGTCGAGCTGGACGGCGACGTAAACGGCCACAAGTTCAGCGTGTCCGGCGAGGGCGAGGGCGATGCCACCTACGGCAAGCTGACCCTGAAGTTCATCTGCACCACCGGCAAGCTGCCCGTGCCCTGGCCCACCCTCGTGACCACCCTGACCTACGGCGTGCAGTGCTTCAGCCGCTACCCCGACCACATGAAGCAGCACGACTTCTTCAAGTCCGCCATGCCCGAAGGCTACGTCCAGGAGCGCACCATCTTCTTCAAGGACGACGGCAACTACAAGACCCGCGCCGAGGTGAAGTTCGAGGGCGACACCCTGGTGAACCGCATCGAGCTGAAGGGCATCGACTTCAAGGAGGACGGCAACATCCTGGGGCACAAGCTGGAGTACAACTACAACAGCCACAACGTCTATATCATGGCCGACAAGCAGAAGAACGGCATCAAGGTGAACTTCAAGATCCGCCACAACATCGAGGACGGCAGCGTGCAGCTCGCCGACCACTACCAGCAGAACACCCCCATCGGCGACGGCCCCGTGCTGCTGCCCGACAACCACTACCTGAGCACCCAGTCCGCCCTGAGCAAAGACCCCAACGAGAAGCGCGATCACATGGTCCTGCTGGAGTTCGTGACCGCCGCCGGGATCACTCTCGGCATGGACGAGCTGTACAAGTAA    
+    TACCACTCGTTCCCGCTCCTCGACAAGTGGCCCCACCACGGGTAGGACCAGCTCGACCTGCCGCTGCATTTGCCGGTGTTCAAGTCGCACAGGCCGCTCCCGCTCCCGCTACGGTGGATGCCGTTCGACTGGGACTTCAAGTAGACGTGGTGGCCGTTCGACGGGCACGGGACCGGGTGGGAGCACTGGTGGGACTGGATGCCGCACGTCACGAAGTCGGCGATGGGGCTGGTGTACTTCGTCGTGCTGAAGAAGTTCAGGCGGTACGGGCTTCCGATGCAGGTCCTCGCGTGGTAGAAGAAGTTCCTGCTGCCGTTGATGTTCTGGGCGCGGCTCCACTTCAAGCTCCCGCTGTGGGACCACTTGGCGTAGCTCGACTTCCCGTAGCTGAAGTTCCTCCTGCCGTTGTAGGACCCCGTGTTCGACCTCATGTTGATGTTGTCGGTGTTGCAGATATAGTACCGGCTGTTCGTCTTCTTGCCGTAGTTCCACTTGAAGTTCTAGGCGGTGTTGTAGCTCCTGCCGTCGCACGTCGAGCGGCTGGTGATGGTCGTCTTGTGGGGGTAGCCGCTGCCGGGGCACGACGACGGGCTGTTGGTGATGGACTCGTGGGTCAGGCGGGACTCGTTTCTGGGGTTGCTCTTCGCGCTAGTGTACCAGGACGACCTCAAGCACTGGCGGCGGCCCTAGTGAGAGCCGTACCTGCTCGACATGTTCATTCCCT
+
+Dseqrecord(-11)
+GGGATGAGACC
+    ACTCTGG</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="99">
-<div class="ansi-escaped-output">
-<pre>Dseqrecord(-11)
-<span class="ansi-bright-yellow-bg">GGTCTCA</span>    
-CCAGAGTCAGT</pre>
 </div>
-</div>
-</div>
-<div id="cell-31" class="cell" data-execution_count="115">
+<ul>
+<li>Assembly the fragments back</li>
+</ul>
+<div id="cell-34" class="cell" data-execution_count="140">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.assembly <span class="im">import</span> Assembly</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.common_sub_strings <span class="im">import</span> terminal_overlap</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>asm <span class="op">=</span> Assembly((cut_product[<span class="dv">0</span>], cut_product[<span class="dv">1</span>], cut_product[<span class="dv">2</span>]), algorithm <span class="op">=</span> terminal_overlap, limit <span class="op">=</span> <span class="dv">4</span>)</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>candidate <span class="op">=</span> asm.assemble_linear()</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>candidate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="115">
-<pre><code>[Contig(-742)]</code></pre>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(candidate[<span class="dv">0</span>])</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>candidate[<span class="dv">0</span>].figure()   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dseqrecord
+circular: False
+size: 742
+ID: id
+Name: name
+Description: description
+Number of features: 13
+/molecule_type=DNA
+Dseq(-742)
+GGTC..GACC
+CCAG..CTGG</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="140">
+<pre><code>name| 4
+     \/
+     /\
+      4|name| 4
+             \/
+             /\
+              4|name</code></pre>
 </div>
 </div>
 
