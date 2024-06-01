@@ -192,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#find-positions-of-a-specific-feature-label" id="toc-find-positions-of-a-specific-feature-label" class="nav-link" data-scroll-target="#find-positions-of-a-specific-feature-label"><span class="header-section-number">2.8.1</span> Find positions of a specific feature label</a></li>
   <li><a href="#part-preparation-by-pcr" id="toc-part-preparation-by-pcr" class="nav-link" data-scroll-target="#part-preparation-by-pcr"><span class="header-section-number">2.8.2</span> Part preparation by PCR</a></li>
   <li><a href="#enzyme-cut-and-assembly" id="toc-enzyme-cut-and-assembly" class="nav-link" data-scroll-target="#enzyme-cut-and-assembly"><span class="header-section-number">2.8.3</span> Enzyme cut and assembly</a></li>
+  <li><a href="#assembly-with-wrong-fragments" id="toc-assembly-with-wrong-fragments" class="nav-link" data-scroll-target="#assembly-with-wrong-fragments"><span class="header-section-number">2.8.4</span> Assembly with wrong fragments</a></li>
   </ul></li>
-  <li><a href="#assembly-with-wrong-fragments" id="toc-assembly-with-wrong-fragments" class="nav-link" data-scroll-target="#assembly-with-wrong-fragments"><span class="header-section-number">2.9</span> Assembly with wrong fragments</a></li>
   </ul>
 </nav>
     </div>
@@ -2552,7 +2552,7 @@ CCAG..CTGG</code></pre>
 <ul>
 <li>from “BsaI-F” to “BsaI-R”</li>
 </ul>
-<div id="cell-41" class="cell" data-execution_count="36">
+<div id="cell-41" class="cell" data-execution_count="67">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create, primers</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
@@ -2581,14 +2581,6 @@ CCAG..CTGG</code></pre>
 <span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>terminator_pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, terminator)</span>
 <span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>display(terminator_pcr_product.figure())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<pre><code>5GGTCTCAGTCAATGGTGA...TACAAGTAAGGGATGAGACC3
-                      ||||||||||||||||||||
-                     3ATGTTCATTCCCTACTCTGG5
-5GGTCTCAGTCAATGGTGA3
- ||||||||||||||||||
-3CCAGAGTCAGTTACCACT...ATGTTCATTCCCTACTCTGG5</code></pre>
-</div>
-<div class="cell-output cell-output-display">
 <pre><code>5GGTCTCAAAGCTTGACG...CTAGCCTCCAGAGACC3
                      ||||||||||||||||
                     3GATCGGAGGTCTCTGG5
@@ -2605,6 +2597,14 @@ CCAG..CTGG</code></pre>
 3CCAGAGTGAGGTCGAC...CTCCTCTTTATCAGTACTCTGG5</code></pre>
 </div>
 <div class="cell-output cell-output-display">
+<pre><code>5GGTCTCAGTCAATGGTGA...TACAAGTAAGGGATGAGACC3
+                      ||||||||||||||||||||
+                     3ATGTTCATTCCCTACTCTGG5
+5GGTCTCAGTCAATGGTGA3
+ ||||||||||||||||||
+3CCAGAGTCAGTTACCACT...ATGTTCATTCCCTACTCTGG5</code></pre>
+</div>
+<div class="cell-output cell-output-display">
 <pre><code>5GGTCTCAGGGATAGCG...TTGTTGAGCGAATGAGACC3
                     |||||||||||||||||||
                    3AACAACTCGCTTACTCTGG5
@@ -2616,35 +2616,39 @@ CCAG..CTGG</code></pre>
 </section>
 <section id="enzyme-cut-and-assembly" class="level3" data-number="2.8.3">
 <h3 data-number="2.8.3" class="anchored" data-anchor-id="enzyme-cut-and-assembly"><span class="header-section-number">2.8.3</span> Enzyme cut and assembly</h3>
-<div id="cell-43" class="cell" data-execution_count="37">
+<div id="cell-43" class="cell" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Restriction <span class="im">import</span> BsaI</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.assembly <span class="im">import</span> Assembly</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.common_sub_strings <span class="im">import</span> terminal_overlap</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>promoter_cut_product <span class="op">=</span> rbs_pcr_product.cut(BsaI)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>promoter_cut_product <span class="op">=</span> promoter_pcr_product.cut(BsaI)</span>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(promoter_cut_product))</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>display(promoter_cut_product[<span class="dv">1</span>].figure())</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>rbs_cut_product <span class="op">=</span> rbs_pcr_product.cut(BsaI)</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(rbs_cut_product))</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>display(rbs_cut_product[<span class="dv">1</span>].figure())</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>egfp_cut_product <span class="op">=</span> egfp_pcr_product.cut(BsaI)</span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(egfp_cut_product))</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>display(egfp_cut_product[<span class="dv">1</span>].figure())</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>terminator_cut_product <span class="op">=</span> terminator_pcr_product.cut(BsaI)</span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(terminator_cut_product))</span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>display(terminator_cut_product[<span class="dv">1</span>].figure())</span>
-<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>asm <span class="op">=</span> Assembly((promoter_cut_product[<span class="dv">1</span>], rbs_cut_product[<span class="dv">1</span>], egfp_cut_product[<span class="dv">1</span>], terminator_cut_product[<span class="dv">1</span>]), algorithm <span class="op">=</span> terminal_overlap, limit <span class="op">=</span> <span class="dv">4</span>)</span>
-<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>candidate <span class="op">=</span> asm.assemble_linear()</span>
-<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(candidate))</span>
-<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>candidate[<span class="dv">0</span>].figure()   </span>
-<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>promoter_cut_product[<span class="dv">1</span>].name <span class="op">=</span> <span class="st">"promoter"</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>display(promoter_cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>rbs_cut_product <span class="op">=</span> rbs_pcr_product.cut(BsaI)</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(rbs_cut_product))</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>rbs_cut_product[<span class="dv">1</span>].name <span class="op">=</span> <span class="st">"rbs"</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>display(rbs_cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>egfp_cut_product <span class="op">=</span> egfp_pcr_product.cut(BsaI)</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(egfp_cut_product))</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>egfp_cut_product[<span class="dv">1</span>].name <span class="op">=</span> <span class="st">"egfp"</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>display(egfp_cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>terminator_cut_product <span class="op">=</span> terminator_pcr_product.cut(BsaI)</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(terminator_cut_product))</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>terminator_cut_product[<span class="dv">1</span>].name <span class="op">=</span> <span class="st">"terminator"</span></span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>display(terminator_cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>asm <span class="op">=</span> Assembly((promoter_cut_product[<span class="dv">1</span>], rbs_cut_product[<span class="dv">1</span>], egfp_cut_product[<span class="dv">1</span>], terminator_cut_product[<span class="dv">1</span>]), algorithm <span class="op">=</span> terminal_overlap, limit <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>candidate <span class="op">=</span> asm.assemble_linear()</span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(candidate))</span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>candidate[<span class="dv">0</span>].figure()   </span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3
 3
@@ -2654,9 +2658,9 @@ CCAG..CTGG</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div class="ansi-escaped-output">
-<pre>Dseqrecord(-107)
-<span class="ansi-bright-yellow-bg">CTCC</span>AGCTGTCACCGGATGTGCTTTCCGGTCTGATGAGTCCGTGAGGACGAAACAGCCTCTACAAATAATTTTGTTTAATCTAGAGATTAAAGAGGAGAAATA    
-    TCGACAGTGGCCTACACGAAAGGCCAGACTACTCAGGCACTCCTGCTTTGTCGGAGATGTTTATTAAAACAAATTAGATCTCTAATTTCTCCTCTTTATCAGT</pre>
+<pre>Dseqrecord(-43)
+<span class="ansi-bright-yellow-bg">AAGC</span>TTGACGGCTAGCTCAGTCCTAGGTACAGTGCTAGC    
+    AACTGCCGATCGAGTCAGGATCCATGTCACGATCGGAGG</pre>
 </div>
 </div>
 <div class="cell-output cell-output-display">
@@ -2680,38 +2684,34 @@ CCAG..CTGG</code></pre>
     ATCGCACTGGCCGCGTAGCCAGTGCGATAAACAACTCGCTT</pre>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="37">
-<pre><code>name| 4
-     \/
-     /\
-      4|name| 4
-             \/
-             /\
-              4|name</code></pre>
-</div>
-</div>
-<div id="cell-44" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>promoter_cut_product[<span class="dv">1</span>].figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<div class="ansi-escaped-output">
-<pre>Dseqrecord(-107)
-<span class="ansi-bright-yellow-bg">CTCC</span>AGCTGTCACCGGATGTGCTTTCCGGTCTGATGAGTCCGTGAGGACGAAACAGCCTCTACAAATAATTTTGTTTAATCTAGAGATTAAAGAGGAGAAATA    
-    TCGACAGTGGCCTACACGAAAGGCCAGACTACTCAGGCACTCCTGCTTTGTCGGAGATGTTTATTAAAACAAATTAGATCTCTAATTTCTCCTCTTTATCAGT</pre>
-</div>
+<div class="cell-output cell-output-display" data-execution_count="69">
+<pre><code>promoter| 4
+         \/
+         /\
+          4|rbs| 4
+                \/
+                /\
+                 4|egfp| 4
+                        \/
+                        /\
+                         4|terminator</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="assembly-with-wrong-fragments" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="assembly-with-wrong-fragments"><span class="header-section-number">2.9</span> Assembly with wrong fragments</h2>
-<div id="cell-46" class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>promoter <span class="op">=</span> read(<span class="st">"data/parts/pUC19-J23100.gb"</span>)</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>terminator <span class="op">=</span> read(<span class="st">"data/parts/pUC19-L2U3H03.gb"</span>)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>rbs <span class="op">=</span> read(<span class="st">"data/parts/pUC19-RB0030.gb"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="assembly-with-wrong-fragments" class="level3" data-number="2.8.4">
+<h3 data-number="2.8.4" class="anchored" data-anchor-id="assembly-with-wrong-fragments"><span class="header-section-number">2.8.4</span> Assembly with wrong fragments</h3>
+<div id="cell-45" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>asm <span class="op">=</span> Assembly((promoter_cut_product[<span class="dv">0</span>], rbs_cut_product[<span class="dv">1</span>], egfp_cut_product[<span class="dv">1</span>], terminator_cut_product[<span class="dv">1</span>]), algorithm <span class="op">=</span> terminal_overlap, limit <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>candidate <span class="op">=</span> asm.assemble_linear()</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(candidate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0</code></pre>
+</div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
