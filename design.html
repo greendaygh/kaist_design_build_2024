@@ -177,9 +177,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#primers" id="toc-primers" class="nav-link" data-scroll-target="#primers"><span class="header-section-number">2.3</span> Primers</a></li>
   <li><a href="#pydna" id="toc-pydna" class="nav-link" data-scroll-target="#pydna"><span class="header-section-number">2.4</span> pydna</a></li>
   <li><a href="#parts" id="toc-parts" class="nav-link" data-scroll-target="#parts"><span class="header-section-number">2.5</span> Parts</a></li>
-  <li><a href="#golden-gate-assembly" id="toc-golden-gate-assembly" class="nav-link" data-scroll-target="#golden-gate-assembly"><span class="header-section-number">2.6</span> Golden gate assembly</a></li>
-  <li><a href="#find-positions-of-a-specific-feature-label" id="toc-find-positions-of-a-specific-feature-label" class="nav-link" data-scroll-target="#find-positions-of-a-specific-feature-label"><span class="header-section-number">2.7</span> Find positions of a specific feature label</a></li>
-  <li><a href="#primer-design-for-a-specific-region" id="toc-primer-design-for-a-specific-region" class="nav-link" data-scroll-target="#primer-design-for-a-specific-region"><span class="header-section-number">2.8</span> primer design for a specific region</a></li>
+  <li><a href="#feature-amplification" id="toc-feature-amplification" class="nav-link" data-scroll-target="#feature-amplification"><span class="header-section-number">2.6</span> Feature amplification</a>
+  <ul class="collapse">
+  <li><a href="#primer-design" id="toc-primer-design" class="nav-link" data-scroll-target="#primer-design"><span class="header-section-number">2.6.1</span> primer design</a></li>
+  <li><a href="#pcr" id="toc-pcr" class="nav-link" data-scroll-target="#pcr"><span class="header-section-number">2.6.2</span> PCR</a></li>
+  </ul></li>
+  <li><a href="#golden-gate-assembly-i" id="toc-golden-gate-assembly-i" class="nav-link" data-scroll-target="#golden-gate-assembly-i"><span class="header-section-number">2.7</span> Golden Gate Assembly I</a>
+  <ul class="collapse">
+  <li><a href="#enzyme-cutting" id="toc-enzyme-cutting" class="nav-link" data-scroll-target="#enzyme-cutting"><span class="header-section-number">2.7.1</span> Enzyme cutting</a></li>
+  <li><a href="#assembly-the-fragments-back" id="toc-assembly-the-fragments-back" class="nav-link" data-scroll-target="#assembly-the-fragments-back"><span class="header-section-number">2.7.2</span> Assembly the fragments back</a></li>
+  </ul></li>
+  <li><a href="#golden-gate-assembly-ii" id="toc-golden-gate-assembly-ii" class="nav-link" data-scroll-target="#golden-gate-assembly-ii"><span class="header-section-number">2.8</span> Golden Gate Assembly II</a>
+  <ul class="collapse">
+  <li><a href="#find-positions-of-a-specific-feature-label" id="toc-find-positions-of-a-specific-feature-label" class="nav-link" data-scroll-target="#find-positions-of-a-specific-feature-label"><span class="header-section-number">2.8.1</span> Find positions of a specific feature label</a></li>
+  <li><a href="#part-preparation-by-pcr" id="toc-part-preparation-by-pcr" class="nav-link" data-scroll-target="#part-preparation-by-pcr"><span class="header-section-number">2.8.2</span> Part preparation by PCR</a></li>
+  <li><a href="#enzyme-cut-and-assembly" id="toc-enzyme-cut-and-assembly" class="nav-link" data-scroll-target="#enzyme-cut-and-assembly"><span class="header-section-number">2.8.3</span> Enzyme cut and assembly</a></li>
+  </ul></li>
   <li><a href="#assembly-with-wrong-fragments" id="toc-assembly-with-wrong-fragments" class="nav-link" data-scroll-target="#assembly-with-wrong-fragments"><span class="header-section-number">2.9</span> Assembly with wrong fragments</a></li>
   </ul>
 </nav>
@@ -846,41 +859,32 @@ TTCG..TAAG</code></pre>
 <p><img src="images/puc19_egfp.png" class="img-fluid" width="500"></p>
 </section>
 </section>
-<section id="golden-gate-assembly" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="golden-gate-assembly"><span class="header-section-number">2.6</span> Golden gate assembly</h2>
-<div id="cell-27" class="cell" data-execution_count="10">
+<section id="feature-amplification" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="feature-amplification"><span class="header-section-number">2.6</span> Feature amplification</h2>
+<section id="primer-design" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="primer-design"><span class="header-section-number">2.6.1</span> primer design</h3>
+<div id="cell-27" class="cell" data-execution_count="148">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>egfp <span class="op">=</span> read(<span class="st">"data/parts/pUC19-egfp.gb"</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>promoter <span class="op">=</span> read(<span class="st">"data/parts/pUC19-J23100.gb"</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>terminator <span class="op">=</span> read(<span class="st">"data/parts/pUC19-L2U3H03.gb"</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>rbs <span class="op">=</span> read(<span class="st">"data/parts/pUC19-RB0030.gb"</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>egfp_feature_list <span class="op">=</span> egfp.list_features()</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>egfp_feature_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>egfp <span class="op">=</span> read(<span class="st">"data/parts/pUC19-egfp.gb"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>egfp_feature_list <span class="op">=</span> egfp.list_features()</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>display(egfp_feature_list)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>myseq <span class="op">=</span> egfp.extract_feature(<span class="dv">13</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(myseq.seq)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(myseq.seq), add_fwd <span class="op">=</span> <span class="st">"GGGG"</span>, add_rev <span class="op">=</span> <span class="st">"TTTT"</span>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
 'LOCUS       pUC19-egfp        3371 bp DNA     circular SYN 18-MAY-2024\n'
 Found locus 'pUC19-egfp' size '3371' residue_type 'DNA'
 Some fields may be wrong.
-  warnings.warn(
-/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
-'LOCUS       pUC19-J23100        2686 bp DNA     circular SYN 18-MAY-2024\n'
-Found locus 'pUC19-J23100' size '2686' residue_type 'DNA'
-Some fields may be wrong.
-  warnings.warn(
-/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
-'LOCUS       pUC19-gg-L2U3H03        2688 bp DNA     circular SYN 18-MAY-2024\n'
-Found locus 'pUC19-gg-L2U3H03' size '2688' residue_type 'DNA'
-Some fields may be wrong.
-  warnings.warn(
-/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
-'LOCUS       pUC19-R-B0030        2750 bp DNA     circular SYN 18-MAY-2024\n'
-Found locus 'pUC19-R-B0030' size '2750' residue_type 'DNA'
-Some fields may be wrong.
   warnings.warn(</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display">
 <div>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
@@ -1200,26 +1204,19 @@ Some fields may be wrong.
 </table>
 </div>
 </div>
-</div>
-<ul>
-<li>Primers for egfp</li>
-</ul>
-<div id="cell-29" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create, primers</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>myseq <span class="op">=</span> egfp.extract_feature(<span class="dv">13</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(myseq.seq)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(myseq.seq), add_fwd <span class="op">=</span> <span class="st">"GGGG"</span>, add_rev <span class="op">=</span> <span class="st">"TTTT"</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fwd)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, egfp.extract_feature(<span class="dv">13</span>))</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>pcr_product.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Primer(seq='GGGGATGGTGAGCAAGGGCG', len=20, tm=65.1, tm_total=72.1, gc=0.7, dg=0, fwd=True, off_target_count=0, scoring=Scoring(penalty=10.1, penalty_tm=3.1, penalty_tm_diff=0, penalty_gc=4.0, penalty_len=3.0, penalty_dg=0.0, penalty_off_target=0.0))</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+</div>
+</section>
+<section id="pcr" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="pcr"><span class="header-section-number">2.6.2</span> PCR</h3>
+<div id="cell-29" class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, egfp.extract_feature(<span class="dv">13</span>))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>pcr_product.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="149">
 <pre><code>    5ATGGTGAGCAAGGGCG...CATGGACGAGCTGTACAAGTAA3
                         ||||||||||||||||||||||
                        3GTACCTGCTCGACATGTTCATTTTTT5
@@ -1228,12 +1225,16 @@ Some fields may be wrong.
     3TACCACTCGTTCCCGC...GTACCTGCTCGACATGTTCATT5</code></pre>
 </div>
 </div>
+</section>
+</section>
+<section id="golden-gate-assembly-i" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="golden-gate-assembly-i"><span class="header-section-number">2.7</span> Golden Gate Assembly I</h2>
 <ul>
 <li>Target sequence including overhang and BsaI site</li>
 <li>Generate primers</li>
 <li>PCR the target sequence</li>
 </ul>
-<div id="cell-31" class="cell" data-execution_count="13">
+<div id="cell-31" class="cell" data-execution_count="152">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1248,7 +1249,7 @@ Some fields may be wrong.
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, targetseq)</span>
 <span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>pcr_product.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="152">
 <pre><code>5GGTCTCAGTCAATGGTGA...TACAAGTAAGGGATGAGACC3
                       ||||||||||||||||||||
                      3ATGTTCATTCCCTACTCTGG5
@@ -1257,35 +1258,49 @@ Some fields may be wrong.
 3CCAGAGTCAGTTACCACT...ATGTTCATTCCCTACTCTGG5</code></pre>
 </div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="14">
+<section id="enzyme-cutting" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="enzyme-cutting"><span class="header-section-number">2.7.1</span> Enzyme cutting</h3>
+<div id="cell-33" class="cell" data-execution_count="153">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Restriction <span class="im">import</span> BsaI</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>cut_product <span class="op">=</span> pcr_product.cut(BsaI)</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(cut_product))</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cut_product[<span class="dv">0</span>].figure())</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>display(cut_product[<span class="dv">0</span>].figure())</span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>display(cut_product[<span class="dv">1</span>].figure())</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cut_product[<span class="dv">2</span>].figure())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>display(cut_product[<span class="dv">2</span>].figure())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3
-Dseqrecord(-11)
-GGTCTCA    
-CCAGAGTCAGT
 
-Dseqrecord(-728)
-GTCAATGGTGAGCAAGGGCGAGGAGCTGTTCACCGGGGTGGTGCCCATCCTGGTCGAGCTGGACGGCGACGTAAACGGCCACAAGTTCAGCGTGTCCGGCGAGGGCGAGGGCGATGCCACCTACGGCAAGCTGACCCTGAAGTTCATCTGCACCACCGGCAAGCTGCCCGTGCCCTGGCCCACCCTCGTGACCACCCTGACCTACGGCGTGCAGTGCTTCAGCCGCTACCCCGACCACATGAAGCAGCACGACTTCTTCAAGTCCGCCATGCCCGAAGGCTACGTCCAGGAGCGCACCATCTTCTTCAAGGACGACGGCAACTACAAGACCCGCGCCGAGGTGAAGTTCGAGGGCGACACCCTGGTGAACCGCATCGAGCTGAAGGGCATCGACTTCAAGGAGGACGGCAACATCCTGGGGCACAAGCTGGAGTACAACTACAACAGCCACAACGTCTATATCATGGCCGACAAGCAGAAGAACGGCATCAAGGTGAACTTCAAGATCCGCCACAACATCGAGGACGGCAGCGTGCAGCTCGCCGACCACTACCAGCAGAACACCCCCATCGGCGACGGCCCCGTGCTGCTGCCCGACAACCACTACCTGAGCACCCAGTCCGCCCTGAGCAAAGACCCCAACGAGAAGCGCGATCACATGGTCCTGCTGGAGTTCGTGACCGCCGCCGGGATCACTCTCGGCATGGACGAGCTGTACAAGTAA    
-    TACCACTCGTTCCCGCTCCTCGACAAGTGGCCCCACCACGGGTAGGACCAGCTCGACCTGCCGCTGCATTTGCCGGTGTTCAAGTCGCACAGGCCGCTCCCGCTCCCGCTACGGTGGATGCCGTTCGACTGGGACTTCAAGTAGACGTGGTGGCCGTTCGACGGGCACGGGACCGGGTGGGAGCACTGGTGGGACTGGATGCCGCACGTCACGAAGTCGGCGATGGGGCTGGTGTACTTCGTCGTGCTGAAGAAGTTCAGGCGGTACGGGCTTCCGATGCAGGTCCTCGCGTGGTAGAAGAAGTTCCTGCTGCCGTTGATGTTCTGGGCGCGGCTCCACTTCAAGCTCCCGCTGTGGGACCACTTGGCGTAGCTCGACTTCCCGTAGCTGAAGTTCCTCCTGCCGTTGTAGGACCCCGTGTTCGACCTCATGTTGATGTTGTCGGTGTTGCAGATATAGTACCGGCTGTTCGTCTTCTTGCCGTAGTTCCACTTGAAGTTCTAGGCGGTGTTGTAGCTCCTGCCGTCGCACGTCGAGCGGCTGGTGATGGTCGTCTTGTGGGGGTAGCCGCTGCCGGGGCACGACGACGGGCTGTTGGTGATGGACTCGTGGGTCAGGCGGGACTCGTTTCTGGGGTTGCTCTTCGCGCTAGTGTACCAGGACGACCTCAAGCACTGGCGGCGGCCCTAGTGAGAGCCGTACCTGCTCGACATGTTCATTCCCT
-
-Dseqrecord(-11)
-GGGATGAGACC
-    ACTCTGG</code></pre>
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-11)
+<span class="ansi-bright-yellow-bg">GGTCTCA</span>    
+CCAGAGTCAGT</pre>
 </div>
 </div>
-<ul>
-<li>Assembly the fragments back</li>
-</ul>
-<div id="cell-34" class="cell" data-execution_count="140">
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-728)
+<span class="ansi-bright-yellow-bg">GTCA</span>ATGGTGAGCAAGGGCGAGGAGCTGTTCACCGGGGTGGTGCCCATCCTGGTCGAGCTGGACGGCGACGTAAACGGCCACAAGTTCAGCGTGTCCGGCGAGGGCGAGGGCGATGCCACCTACGGCAAGCTGACCCTGAAGTTCATCTGCACCACCGGCAAGCTGCCCGTGCCCTGGCCCACCCTCGTGACCACCCTGACCTACGGCGTGCAGTGCTTCAGCCGCTACCCCGACCACATGAAGCAGCACGACTTCTTCAAGTCCGCCATGCCCGAAGGCTACGTCCAGGAGCGCACCATCTTCTTCAAGGACGACGGCAACTACAAGACCCGCGCCGAGGTGAAGTTCGAGGGCGACACCCTGGTGAACCGCATCGAGCTGAAGGGCATCGACTTCAAGGAGGACGGCAACATCCTGGGGCACAAGCTGGAGTACAACTACAACAGCCACAACGTCTATATCATGGCCGACAAGCAGAAGAACGGCATCAAGGTGAACTTCAAGATCCGCCACAACATCGAGGACGGCAGCGTGCAGCTCGCCGACCACTACCAGCAGAACACCCCCATCGGCGACGGCCCCGTGCTGCTGCCCGACAACCACTACCTGAGCACCCAGTCCGCCCTGAGCAAAGACCCCAACGAGAAGCGCGATCACATGGTCCTGCTGGAGTTCGTGACCGCCGCCGGGATCACTCTCGGCATGGACGAGCTGTACAAGTAA    
+    TACCACTCGTTCCCGCTCCTCGACAAGTGGCCCCACCACGGGTAGGACCAGCTCGACCTGCCGCTGCATTTGCCGGTGTTCAAGTCGCACAGGCCGCTCCCGCTCCCGCTACGGTGGATGCCGTTCGACTGGGACTTCAAGTAGACGTGGTGGCCGTTCGACGGGCACGGGACCGGGTGGGAGCACTGGTGGGACTGGATGCCGCACGTCACGAAGTCGGCGATGGGGCTGGTGTACTTCGTCGTGCTGAAGAAGTTCAGGCGGTACGGGCTTCCGATGCAGGTCCTCGCGTGGTAGAAGAAGTTCCTGCTGCCGTTGATGTTCTGGGCGCGGCTCCACTTCAAGCTCCCGCTGTGGGACCACTTGGCGTAGCTCGACTTCCCGTAGCTGAAGTTCCTCCTGCCGTTGTAGGACCCCGTGTTCGACCTCATGTTGATGTTGTCGGTGTTGCAGATATAGTACCGGCTGTTCGTCTTCTTGCCGTAGTTCCACTTGAAGTTCTAGGCGGTGTTGTAGCTCCTGCCGTCGCACGTCGAGCGGCTGGTGATGGTCGTCTTGTGGGGGTAGCCGCTGCCGGGGCACGACGACGGGCTGTTGGTGATGGACTCGTGGGTCAGGCGGGACTCGTTTCTGGGGTTGCTCTTCGCGCTAGTGTACCAGGACGACCTCAAGCACTGGCGGCGGCCCTAGTGAGAGCCGTACCTGCTCGACATGTTCATTCCCT</pre>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-11)
+<span class="ansi-bright-yellow-bg">GGGA</span>TGAGACC
+    ACTCTGG</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="assembly-the-fragments-back" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="assembly-the-fragments-back"><span class="header-section-number">2.7.2</span> Assembly the fragments back</h3>
+<div id="cell-35" class="cell" data-execution_count="140">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.assembly <span class="im">import</span> Assembly</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.common_sub_strings <span class="im">import</span> terminal_overlap</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1320,103 +1335,1381 @@ CCAG..CTGG</code></pre>
 </div>
 </div>
 </section>
-<section id="find-positions-of-a-specific-feature-label" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="find-positions-of-a-specific-feature-label"><span class="header-section-number">2.7</span> Find positions of a specific feature label</h2>
-<div id="cell-36" class="cell" data-execution_count="101">
+</section>
+<section id="golden-gate-assembly-ii" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="golden-gate-assembly-ii"><span class="header-section-number">2.8</span> Golden Gate Assembly II</h2>
+<section id="find-positions-of-a-specific-feature-label" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="find-positions-of-a-specific-feature-label"><span class="header-section-number">2.8.1</span> Find positions of a specific feature label</h3>
+<div id="cell-37" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co">## read the parts</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>egfp <span class="op">=</span> read(<span class="st">"data/parts/pUC19-egfp.gb"</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(egfp.list_features())</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">## search for the location of egfp EGFP</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>egfp_feature_list <span class="op">=</span> egfp.features</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>egfp_loc <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature <span class="kw">in</span> egfp_feature_list:</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print(feature.qualifiers)</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"label"</span> <span class="kw">in</span> feature.qualifiers:</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feature.qualifiers[<span class="st">'label'</span>] <span class="op">==</span> [<span class="st">"EGFP"</span>]:</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>            egfp_start <span class="op">=</span> feature.location.start</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"egfp_start:"</span>, egfp_start)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>+-----+------------------+-----+------+------+------+--------------+------+
-| Ft# | Label or Note    | Dir | Sta  | End  |  Len | type         | orf? |
-+-----+------------------+-----+------+------+------+--------------+------+
-|   0 | nd               | --&gt; | 0    | 3371 | 3371 | source       |  no  |
-|   1 | L:pBR322ori-F    | --&gt; | 117  | 137  |   20 | primer_bind  |  no  |
-|   2 | L:L4440          | --&gt; | 370  | 388  |   18 | primer_bind  |  no  |
-|   3 | L:CAP binding si | --&gt; | 504  | 526  |   22 | protein_bind |  no  |
-|   4 | L:lac promoter   | --&gt; | 540  | 571  |   31 | promoter     |  no  |
-|   5 | L:lac operator   | --&gt; | 578  | 595  |   17 | protein_bind |  no  |
-|   6 | L:M13/pUC Revers | --&gt; | 583  | 606  |   23 | primer_bind  |  no  |
-|   7 | L:M13 rev        | --&gt; | 602  | 619  |   17 | primer_bind  |  no  |
-|   8 | L:M13 Reverse    | --&gt; | 602  | 619  |   17 | primer_bind  |  no  |
-|   9 | L:lacZ-alpha     | --&gt; | 614  | 1623 | 1009 | CDS          |  no  |
-|  10 | L:BsaI-F         | --&gt; | 631  | 638  |    7 | misc_feature |  no  |
-|  11 | L:lacZ-alpha     | --&gt; | 638  | 642  |    4 | CDS          |  no  |
-|  12 | L:oh-f2-f3-F     | --&gt; | 638  | 642  |    4 | misc_feature |  no  |
-|  13 | L:EGFP           | --&gt; | 642  | 1362 |  720 | CDS          | yes  |
-|  14 | L:EGFP           | --&gt; | 642  | 1359 |  717 | CDS          |  no  |
-|  15 | L:EGFP-N         | &lt;-- | 687  | 709  |   22 | primer_bind  |  no  |
-|  16 | L:EXFP-R         | &lt;-- | 948  | 968  |   20 | primer_bind  |  no  |
-|  17 | L:EGFP-C         | --&gt; | 1295 | 1317 |   22 | primer_bind  |  no  |
-|  18 | L:oh-f3-f4-F     | --&gt; | 1362 | 1366 |    4 | misc_feature |  no  |
-|  19 | L:BasI-R         | --&gt; | 1366 | 1373 |    7 | misc_feature |  no  |
-|  20 | L:M13 Forward    | &lt;-- | 1373 | 1391 |   18 | primer_bind  |  no  |
-|  21 | L:M13 fwd        | &lt;-- | 1373 | 1390 |   17 | primer_bind  |  no  |
-|  22 | L:M13/pUC Forwar | &lt;-- | 1382 | 1405 |   23 | primer_bind  |  no  |
-|  23 | L:pRS-marker     | &lt;-- | 1598 | 1618 |   20 | primer_bind  |  no  |
-|  24 | L:pGEX 3'        | --&gt; | 1717 | 1740 |   23 | primer_bind  |  no  |
-|  25 | L:pBRforEco      | &lt;-- | 1777 | 1796 |   19 | primer_bind  |  no  |
-|  26 | L:AmpR promoter  | --&gt; | 1863 | 1968 |  105 | promoter     |  no  |
-|  27 | L:AmpR           | --&gt; | 1968 | 2829 |  861 | CDS          | yes  |
-|  28 | L:Amp-R          | &lt;-- | 2186 | 2206 |   20 | primer_bind  |  no  |
-|  29 | L:ori            | --&gt; | 0    | 3371 |  589 | rep_origin   |  no  |
-+-----+------------------+-----+------+------+------+--------------+------+
-egfp_start: 642
-egfp_start: 642</code></pre>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>promoter <span class="op">=</span> read(<span class="st">"data/parts/pUC19-J23100.gb"</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>terminator <span class="op">=</span> read(<span class="st">"data/parts/pUC19-L2U3H03.gb"</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>rbs <span class="op">=</span> read(<span class="st">"data/parts/pUC19-RB0030.gb"</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>display(promoter.list_features())</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>display(rbs.list_features())</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>display(egfp.list_features())</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>display(terminator.list_features())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
+'LOCUS       pUC19-egfp        3371 bp DNA     circular SYN 18-MAY-2024\n'
+Found locus 'pUC19-egfp' size '3371' residue_type 'DNA'
+Some fields may be wrong.
+  warnings.warn(
+/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
+'LOCUS       pUC19-J23100        2686 bp DNA     circular SYN 01-JUN-2024\n'
+Found locus 'pUC19-J23100' size '2686' residue_type 'DNA'
+Some fields may be wrong.
+  warnings.warn(
+/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
+'LOCUS       pUC19-L2U3H03        2688 bp DNA     circular SYN 01-JUN-2024\n'
+Found locus 'pUC19-L2U3H03' size '2688' residue_type 'DNA'
+Some fields may be wrong.
+  warnings.warn(
+/home/haseong/anaconda3/envs/biopy/lib/python3.11/site-packages/Bio/GenBank/Scanner.py:1528: BiopythonParserWarning: Attempting to parse malformed locus line:
+'LOCUS       pUC19-RB0030        2750 bp DNA     circular SYN 01-JUN-2024\n'
+Found locus 'pUC19-RB0030' size '2750' residue_type 'DNA'
+Some fields may be wrong.
+  warnings.warn(</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Ft#</th>
+<th data-quarto-table-cell-role="th">Label or Note</th>
+<th data-quarto-table-cell-role="th">Dir</th>
+<th data-quarto-table-cell-role="th">Sta</th>
+<th data-quarto-table-cell-role="th">End</th>
+<th data-quarto-table-cell-role="th">Len</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">orf?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>nd</td>
+<td>--&gt;</td>
+<td>0</td>
+<td>2686</td>
+<td>2686</td>
+<td>source</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>L:pBR322ori-F</td>
+<td>--&gt;</td>
+<td>117</td>
+<td>137</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>L:L4440</td>
+<td>--&gt;</td>
+<td>370</td>
+<td>388</td>
+<td>18</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>L:CAP binding si</td>
+<td>--&gt;</td>
+<td>504</td>
+<td>526</td>
+<td>22</td>
+<td>protein_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>L:lac promoter</td>
+<td>--&gt;</td>
+<td>540</td>
+<td>571</td>
+<td>31</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>L:lac operator</td>
+<td>--&gt;</td>
+<td>578</td>
+<td>595</td>
+<td>17</td>
+<td>protein_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>L:M13/pUC Revers</td>
+<td>--&gt;</td>
+<td>583</td>
+<td>606</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>L:M13 rev</td>
+<td>--&gt;</td>
+<td>602</td>
+<td>619</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>L:M13 Reverse</td>
+<td>--&gt;</td>
+<td>602</td>
+<td>619</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>L:lacZ-alpha</td>
+<td>--&gt;</td>
+<td>614</td>
+<td>938</td>
+<td>324</td>
+<td>CDS</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>L:BsaI-F</td>
+<td>--&gt;</td>
+<td>631</td>
+<td>638</td>
+<td>7</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>L:oh-v-f1-F</td>
+<td>--&gt;</td>
+<td>638</td>
+<td>642</td>
+<td>4</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>L:﻿BBa_J23100</td>
+<td>--&gt;</td>
+<td>642</td>
+<td>677</td>
+<td>35</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>L:oh-f1-f2-F</td>
+<td>--&gt;</td>
+<td>677</td>
+<td>681</td>
+<td>4</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>L:BsaI-R</td>
+<td>--&gt;</td>
+<td>681</td>
+<td>688</td>
+<td>7</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>L:M13 Forward</td>
+<td>&lt;--</td>
+<td>688</td>
+<td>706</td>
+<td>18</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>L:M13 fwd</td>
+<td>&lt;--</td>
+<td>688</td>
+<td>705</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>L:M13/pUC Forwar</td>
+<td>&lt;--</td>
+<td>697</td>
+<td>720</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>L:pRS-marker</td>
+<td>&lt;--</td>
+<td>913</td>
+<td>933</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>L:pGEX 3'</td>
+<td>--&gt;</td>
+<td>1032</td>
+<td>1055</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>L:pBRforEco</td>
+<td>&lt;--</td>
+<td>1092</td>
+<td>1111</td>
+<td>19</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>L:AmpR promoter</td>
+<td>--&gt;</td>
+<td>1178</td>
+<td>1283</td>
+<td>105</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>L:AmpR</td>
+<td>--&gt;</td>
+<td>1283</td>
+<td>2144</td>
+<td>861</td>
+<td>CDS</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>L:Amp-R</td>
+<td>&lt;--</td>
+<td>1501</td>
+<td>1521</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>L:ori</td>
+<td>--&gt;</td>
+<td>0</td>
+<td>2686</td>
+<td>589</td>
+<td>rep_origin</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Ft#</th>
+<th data-quarto-table-cell-role="th">Label or Note</th>
+<th data-quarto-table-cell-role="th">Dir</th>
+<th data-quarto-table-cell-role="th">Sta</th>
+<th data-quarto-table-cell-role="th">End</th>
+<th data-quarto-table-cell-role="th">Len</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">orf?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>nd</td>
+<td>--&gt;</td>
+<td>0</td>
+<td>2750</td>
+<td>2750</td>
+<td>source</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>L:pBR322ori-F</td>
+<td>--&gt;</td>
+<td>117</td>
+<td>137</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>L:L4440</td>
+<td>--&gt;</td>
+<td>370</td>
+<td>388</td>
+<td>18</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>L:CAP binding si</td>
+<td>--&gt;</td>
+<td>504</td>
+<td>526</td>
+<td>22</td>
+<td>protein_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>L:lac promoter</td>
+<td>--&gt;</td>
+<td>540</td>
+<td>571</td>
+<td>31</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>L:lac operator</td>
+<td>--&gt;</td>
+<td>578</td>
+<td>595</td>
+<td>17</td>
+<td>protein_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>L:M13/pUC Revers</td>
+<td>--&gt;</td>
+<td>583</td>
+<td>606</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>L:M13 rev</td>
+<td>--&gt;</td>
+<td>602</td>
+<td>619</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>L:M13 Reverse</td>
+<td>--&gt;</td>
+<td>602</td>
+<td>619</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>L:BsaI-F</td>
+<td>--&gt;</td>
+<td>631</td>
+<td>638</td>
+<td>7</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>L:oh-f1-f2-F</td>
+<td>--&gt;</td>
+<td>638</td>
+<td>642</td>
+<td>4</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>L:R_BBa_B0030</td>
+<td>--&gt;</td>
+<td>642</td>
+<td>741</td>
+<td>99</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>L:sTRSV HHRz</td>
+<td>--&gt;</td>
+<td>644</td>
+<td>694</td>
+<td>50</td>
+<td>misc_RNA</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>N:strong bacteri</td>
+<td>--&gt;</td>
+<td>727</td>
+<td>739</td>
+<td>12</td>
+<td>RBS</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>L:oh-f2-f3-F</td>
+<td>--&gt;</td>
+<td>741</td>
+<td>745</td>
+<td>4</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>L:BsaI-R</td>
+<td>--&gt;</td>
+<td>745</td>
+<td>752</td>
+<td>7</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>L:M13 Forward</td>
+<td>&lt;--</td>
+<td>752</td>
+<td>770</td>
+<td>18</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>L:M13 fwd</td>
+<td>&lt;--</td>
+<td>752</td>
+<td>769</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>L:M13/pUC Forwar</td>
+<td>&lt;--</td>
+<td>761</td>
+<td>784</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>L:pRS-marker</td>
+<td>&lt;--</td>
+<td>977</td>
+<td>997</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>L:pGEX 3'</td>
+<td>--&gt;</td>
+<td>1096</td>
+<td>1119</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>L:pBRforEco</td>
+<td>&lt;--</td>
+<td>1156</td>
+<td>1175</td>
+<td>19</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>L:AmpR promoter</td>
+<td>--&gt;</td>
+<td>1242</td>
+<td>1347</td>
+<td>105</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>L:AmpR</td>
+<td>--&gt;</td>
+<td>1347</td>
+<td>2208</td>
+<td>861</td>
+<td>CDS</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>L:Amp-R</td>
+<td>&lt;--</td>
+<td>1565</td>
+<td>1585</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>L:ori</td>
+<td>--&gt;</td>
+<td>0</td>
+<td>2750</td>
+<td>589</td>
+<td>rep_origin</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Ft#</th>
+<th data-quarto-table-cell-role="th">Label or Note</th>
+<th data-quarto-table-cell-role="th">Dir</th>
+<th data-quarto-table-cell-role="th">Sta</th>
+<th data-quarto-table-cell-role="th">End</th>
+<th data-quarto-table-cell-role="th">Len</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">orf?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>nd</td>
+<td>--&gt;</td>
+<td>0</td>
+<td>3371</td>
+<td>3371</td>
+<td>source</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>L:pBR322ori-F</td>
+<td>--&gt;</td>
+<td>117</td>
+<td>137</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>L:L4440</td>
+<td>--&gt;</td>
+<td>370</td>
+<td>388</td>
+<td>18</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>L:CAP binding si</td>
+<td>--&gt;</td>
+<td>504</td>
+<td>526</td>
+<td>22</td>
+<td>protein_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>L:lac promoter</td>
+<td>--&gt;</td>
+<td>540</td>
+<td>571</td>
+<td>31</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>L:lac operator</td>
+<td>--&gt;</td>
+<td>578</td>
+<td>595</td>
+<td>17</td>
+<td>protein_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>L:M13/pUC Revers</td>
+<td>--&gt;</td>
+<td>583</td>
+<td>606</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>L:M13 rev</td>
+<td>--&gt;</td>
+<td>602</td>
+<td>619</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>L:M13 Reverse</td>
+<td>--&gt;</td>
+<td>602</td>
+<td>619</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>L:lacZ-alpha</td>
+<td>--&gt;</td>
+<td>614</td>
+<td>1623</td>
+<td>1009</td>
+<td>CDS</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>L:BsaI-F</td>
+<td>--&gt;</td>
+<td>631</td>
+<td>638</td>
+<td>7</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>L:lacZ-alpha</td>
+<td>--&gt;</td>
+<td>638</td>
+<td>642</td>
+<td>4</td>
+<td>CDS</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>L:oh-f2-f3-F</td>
+<td>--&gt;</td>
+<td>638</td>
+<td>642</td>
+<td>4</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>L:EGFP</td>
+<td>--&gt;</td>
+<td>642</td>
+<td>1362</td>
+<td>720</td>
+<td>CDS</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>L:EGFP</td>
+<td>--&gt;</td>
+<td>642</td>
+<td>1359</td>
+<td>717</td>
+<td>CDS</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>L:EGFP-N</td>
+<td>&lt;--</td>
+<td>687</td>
+<td>709</td>
+<td>22</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>L:EXFP-R</td>
+<td>&lt;--</td>
+<td>948</td>
+<td>968</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>L:EGFP-C</td>
+<td>--&gt;</td>
+<td>1295</td>
+<td>1317</td>
+<td>22</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>L:oh-f3-f4-F</td>
+<td>--&gt;</td>
+<td>1362</td>
+<td>1366</td>
+<td>4</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>L:BsaI-R</td>
+<td>--&gt;</td>
+<td>1366</td>
+<td>1373</td>
+<td>7</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>L:M13 Forward</td>
+<td>&lt;--</td>
+<td>1373</td>
+<td>1391</td>
+<td>18</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>L:M13 fwd</td>
+<td>&lt;--</td>
+<td>1373</td>
+<td>1390</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>L:M13/pUC Forwar</td>
+<td>&lt;--</td>
+<td>1382</td>
+<td>1405</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>L:pRS-marker</td>
+<td>&lt;--</td>
+<td>1598</td>
+<td>1618</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>L:pGEX 3'</td>
+<td>--&gt;</td>
+<td>1717</td>
+<td>1740</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>L:pBRforEco</td>
+<td>&lt;--</td>
+<td>1777</td>
+<td>1796</td>
+<td>19</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>L:AmpR promoter</td>
+<td>--&gt;</td>
+<td>1863</td>
+<td>1968</td>
+<td>105</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>L:AmpR</td>
+<td>--&gt;</td>
+<td>1968</td>
+<td>2829</td>
+<td>861</td>
+<td>CDS</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>L:Amp-R</td>
+<td>&lt;--</td>
+<td>2186</td>
+<td>2206</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>L:ori</td>
+<td>--&gt;</td>
+<td>0</td>
+<td>3371</td>
+<td>589</td>
+<td>rep_origin</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Ft#</th>
+<th data-quarto-table-cell-role="th">Label or Note</th>
+<th data-quarto-table-cell-role="th">Dir</th>
+<th data-quarto-table-cell-role="th">Sta</th>
+<th data-quarto-table-cell-role="th">End</th>
+<th data-quarto-table-cell-role="th">Len</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">orf?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>nd</td>
+<td>--&gt;</td>
+<td>0</td>
+<td>2688</td>
+<td>2688</td>
+<td>source</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>L:pBR322ori-F</td>
+<td>--&gt;</td>
+<td>117</td>
+<td>137</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>L:L4440</td>
+<td>--&gt;</td>
+<td>370</td>
+<td>388</td>
+<td>18</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>L:CAP binding si</td>
+<td>--&gt;</td>
+<td>504</td>
+<td>526</td>
+<td>22</td>
+<td>protein_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>L:lac promoter</td>
+<td>--&gt;</td>
+<td>540</td>
+<td>571</td>
+<td>31</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>L:lac operator</td>
+<td>--&gt;</td>
+<td>578</td>
+<td>595</td>
+<td>17</td>
+<td>protein_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>L:M13/pUC Revers</td>
+<td>--&gt;</td>
+<td>583</td>
+<td>606</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>L:M13 rev</td>
+<td>--&gt;</td>
+<td>602</td>
+<td>619</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>L:M13 Reverse</td>
+<td>--&gt;</td>
+<td>602</td>
+<td>619</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>L:BsaI-F</td>
+<td>--&gt;</td>
+<td>631</td>
+<td>638</td>
+<td>7</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>L:oh-f3-f4-F</td>
+<td>--&gt;</td>
+<td>638</td>
+<td>642</td>
+<td>4</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>L:L2U3H03</td>
+<td>--&gt;</td>
+<td>642</td>
+<td>679</td>
+<td>37</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>L:oh-f7-v-F</td>
+<td>--&gt;</td>
+<td>679</td>
+<td>683</td>
+<td>4</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>L:BsaI-R</td>
+<td>--&gt;</td>
+<td>683</td>
+<td>690</td>
+<td>7</td>
+<td>misc_feature</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>L:M13 Forward</td>
+<td>&lt;--</td>
+<td>690</td>
+<td>708</td>
+<td>18</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>L:M13 fwd</td>
+<td>&lt;--</td>
+<td>690</td>
+<td>707</td>
+<td>17</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>L:M13/pUC Forwar</td>
+<td>&lt;--</td>
+<td>699</td>
+<td>722</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>L:pRS-marker</td>
+<td>&lt;--</td>
+<td>915</td>
+<td>935</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>L:pGEX 3'</td>
+<td>--&gt;</td>
+<td>1034</td>
+<td>1057</td>
+<td>23</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>L:pBRforEco</td>
+<td>&lt;--</td>
+<td>1094</td>
+<td>1113</td>
+<td>19</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>L:AmpR promoter</td>
+<td>--&gt;</td>
+<td>1180</td>
+<td>1285</td>
+<td>105</td>
+<td>promoter</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>L:AmpR</td>
+<td>--&gt;</td>
+<td>1285</td>
+<td>2146</td>
+<td>861</td>
+<td>CDS</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>L:Amp-R</td>
+<td>&lt;--</td>
+<td>1503</td>
+<td>1523</td>
+<td>20</td>
+<td>primer_bind</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>L:ori</td>
+<td>--&gt;</td>
+<td>0</td>
+<td>2688</td>
+<td>589</td>
+<td>rep_origin</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<ul>
+<li>Make a function for searching by label and returning positions</li>
+</ul>
+<div id="cell-39" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">## search by label and return the location</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_positions_by_label(record, label) :</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    feature_list <span class="op">=</span> record.features</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    pos <span class="op">=</span> {<span class="st">'start'</span>: <span class="va">None</span>, <span class="st">'end'</span>: <span class="va">None</span>}</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> feature <span class="kw">in</span> feature_list:</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">"label"</span> <span class="kw">in</span> feature.qualifiers:</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> feature.qualifiers[<span class="st">'label'</span>] <span class="op">==</span> [label]:</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>                pos[<span class="st">'start'</span>] <span class="op">=</span> <span class="bu">int</span>(feature.location.start)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>                pos[<span class="st">'end'</span>] <span class="op">=</span> <span class="bu">int</span>(feature.location.end)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pos</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_record_between_labels(record, label1, label2) :</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    pos <span class="op">=</span> {<span class="st">'start'</span>: get_positions_by_label(record, label1)[<span class="st">'start'</span>], <span class="st">'end'</span>: get_positions_by_label(record, label2)[<span class="st">'end'</span>]}</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pos[<span class="st">'start'</span>] <span class="op">==</span> <span class="va">None</span> <span class="kw">or</span> pos[<span class="st">'end'</span>] <span class="op">==</span> <span class="va">None</span>:</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"label not found"</span>)</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> record[pos[<span class="st">'start'</span>]:pos[<span class="st">'end'</span>]]</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>target_record <span class="op">=</span> get_record_between_labels(egfp, <span class="st">"BsaI-F"</span>, <span class="st">"BsaI-R"</span>)</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a><span class="co"># print("pos:", target_record)</span></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>display(target_record.figure())</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>target_record.seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-742)
+<span class="ansi-bright-yellow-bg">GGTCTCA</span>GTCAATGGTGAGCAAGGGCGAGGAGCTGTTCACCGGGGTGGTGCCCATCCTGGTCGAGCTGGACGGCGACGTAAACGGCCACAAGTTCAGCGTGTCCGGCGAGGGCGAGGGCGATGCCACCTACGGCAAGCTGACCCTGAAGTTCATCTGCACCACCGGCAAGCTGCCCGTGCCCTGGCCCACCCTCGTGACCACCCTGACCTACGGCGTGCAGTGCTTCAGCCGCTACCCCGACCACATGAAGCAGCACGACTTCTTCAAGTCCGCCATGCCCGAAGGCTACGTCCAGGAGCGCACCATCTTCTTCAAGGACGACGGCAACTACAAGACCCGCGCCGAGGTGAAGTTCGAGGGCGACACCCTGGTGAACCGCATCGAGCTGAAGGGCATCGACTTCAAGGAGGACGGCAACATCCTGGGGCACAAGCTGGAGTACAACTACAACAGCCACAACGTCTATATCATGGCCGACAAGCAGAAGAACGGCATCAAGGTGAACTTCAAGATCCGCCACAACATCGAGGACGGCAGCGTGCAGCTCGCCGACCACTACCAGCAGAACACCCCCATCGGCGACGGCCCCGTGCTGCTGCCCGACAACCACTACCTGAGCACCCAGTCCGCCCTGAGCAAAGACCCCAACGAGAAGCGCGATCACATGGTCCTGCTGGAGTTCGTGACCGCCGCCGGGATCACTCTCGGCATGGACGAGCTGTACAAGTAAGGGATGAGACC
+CCAGAGTCAGTTACCACTCGTTCCCGCTCCTCGACAAGTGGCCCCACCACGGGTAGGACCAGCTCGACCTGCCGCTGCATTTGCCGGTGTTCAAGTCGCACAGGCCGCTCCCGCTCCCGCTACGGTGGATGCCGTTCGACTGGGACTTCAAGTAGACGTGGTGGCCGTTCGACGGGCACGGGACCGGGTGGGAGCACTGGTGGGACTGGATGCCGCACGTCACGAAGTCGGCGATGGGGCTGGTGTACTTCGTCGTGCTGAAGAAGTTCAGGCGGTACGGGCTTCCGATGCAGGTCCTCGCGTGGTAGAAGAAGTTCCTGCTGCCGTTGATGTTCTGGGCGCGGCTCCACTTCAAGCTCCCGCTGTGGGACCACTTGGCGTAGCTCGACTTCCCGTAGCTGAAGTTCCTCCTGCCGTTGTAGGACCCCGTGTTCGACCTCATGTTGATGTTGTCGGTGTTGCAGATATAGTACCGGCTGTTCGTCTTCTTGCCGTAGTTCCACTTGAAGTTCTAGGCGGTGTTGTAGCTCCTGCCGTCGCACGTCGAGCGGCTGGTGATGGTCGTCTTGTGGGGGTAGCCGCTGCCGGGGCACGACGACGGGCTGTTGGTGATGGACTCGTGGGTCAGGCGGGACTCGTTTCTGGGGTTGCTCTTCGCGCTAGTGTACCAGGACGACCTCAAGCACTGGCGGCGGCCCTAGTGAGAGCCGTACCTGCTCGACATGTTCATTCCCTACTCTGG</pre>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>Dseq(-742)
+GGTC..GACC
+CCAG..CTGG</code></pre>
 </div>
 </div>
 </section>
-<section id="primer-design-for-a-specific-region" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="primer-design-for-a-specific-region"><span class="header-section-number">2.8</span> primer design for a specific region</h2>
+<section id="part-preparation-by-pcr" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="part-preparation-by-pcr"><span class="header-section-number">2.8.2</span> Part preparation by PCR</h3>
 <ul>
 <li>from “BsaI-F” to “BsaI-R”</li>
 </ul>
-<div id="cell-38" class="cell" data-execution_count="126">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>start_pos <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>end_pos <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>start_label <span class="op">=</span> <span class="st">"BsaI-F"</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>end_label <span class="op">=</span> <span class="st">"BsaI-R"</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature <span class="kw">in</span> egfp_feature_list:</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"label"</span> <span class="kw">in</span> feature.qualifiers:</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>        lab <span class="op">=</span> feature.qualifiers[<span class="st">'label'</span>][<span class="dv">0</span>]</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> lab <span class="op">==</span> start_label:</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>            start_pos <span class="op">=</span> feature.location.start</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> lab <span class="op">==</span> end_label:</span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>            end_pos <span class="op">=</span> feature.location.end</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(feature.qualifiers[<span class="st">'label'</span>][<span class="dv">0</span>])</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"start_pos:"</span>, start_pos)</span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"end_pos:"</span>, end_label)</span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(egfp.features[<span class="dv">10</span>].location.start)</span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(egfp.features[<span class="dv">19</span>].location.end)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>start_pos: 631
-end_pos: BsaI-R
-631
-1373</code></pre>
+<div id="cell-41" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.readers <span class="im">import</span> read</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> primers <span class="im">import</span> create, primers</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.<span class="bu">all</span> <span class="im">import</span> pcr</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>label1 <span class="op">=</span> <span class="st">"BsaI-F"</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>label2 <span class="op">=</span> <span class="st">"BsaI-R"</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>promoter_target <span class="op">=</span> get_record_between_labels(promoter, label1, label2)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>rbs_target <span class="op">=</span> get_record_between_labels(rbs, label1, label2)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>egfp_target <span class="op">=</span> get_record_between_labels(egfp, label1, label2)</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>terminator_target <span class="op">=</span> get_record_between_labels(terminator, label1, label2)</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(promoter_target.seq))</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>promoter_pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, promoter)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>display(promoter_pcr_product.figure())</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(rbs_target.seq))</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>rbs_pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, rbs)</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>display(rbs_pcr_product.figure())</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(egfp_target.seq))</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>egfp_pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, egfp)</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>display(egfp_pcr_product.figure())</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>fwd, rev <span class="op">=</span> create(<span class="bu">str</span>(terminator_target.seq))</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>terminator_pcr_product <span class="op">=</span> pcr(fwd.seq, rev.seq, terminator)</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>display(terminator_pcr_product.figure())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>5GGTCTCAGTCAATGGTGA...TACAAGTAAGGGATGAGACC3
+                      ||||||||||||||||||||
+                     3ATGTTCATTCCCTACTCTGG5
+5GGTCTCAGTCAATGGTGA3
+ ||||||||||||||||||
+3CCAGAGTCAGTTACCACT...ATGTTCATTCCCTACTCTGG5</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>5GGTCTCAAAGCTTGACG...CTAGCCTCCAGAGACC3
+                     ||||||||||||||||
+                    3GATCGGAGGTCTCTGG5
+5GGTCTCAAAGCTTGACG3
+ |||||||||||||||||
+3CCAGAGTTTCGAACTGC...GATCGGAGGTCTCTGG5</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>5GGTCTCACTCCAGCTG...GAGGAGAAATAGTCATGAGACC3
+                    ||||||||||||||||||||||
+                   3CTCCTCTTTATCAGTACTCTGG5
+5GGTCTCACTCCAGCTG3
+ ||||||||||||||||
+3CCAGAGTGAGGTCGAC...CTCCTCTTTATCAGTACTCTGG5</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>5GGTCTCAGGGATAGCG...TTGTTGAGCGAATGAGACC3
+                    |||||||||||||||||||
+                   3AACAACTCGCTTACTCTGG5
+5GGTCTCAGGGATAGCG3
+ ||||||||||||||||
+3CCAGAGTCCCTATCGC...AACAACTCGCTTACTCTGG5</code></pre>
 </div>
 </div>
 </section>
+<section id="enzyme-cut-and-assembly" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="enzyme-cut-and-assembly"><span class="header-section-number">2.8.3</span> Enzyme cut and assembly</h3>
+<div id="cell-43" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Restriction <span class="im">import</span> BsaI</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.assembly <span class="im">import</span> Assembly</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydna.common_sub_strings <span class="im">import</span> terminal_overlap</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>promoter_cut_product <span class="op">=</span> rbs_pcr_product.cut(BsaI)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(promoter_cut_product))</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>display(promoter_cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>rbs_cut_product <span class="op">=</span> rbs_pcr_product.cut(BsaI)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(rbs_cut_product))</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>display(rbs_cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>egfp_cut_product <span class="op">=</span> egfp_pcr_product.cut(BsaI)</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(egfp_cut_product))</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>display(egfp_cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>terminator_cut_product <span class="op">=</span> terminator_pcr_product.cut(BsaI)</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(terminator_cut_product))</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>display(terminator_cut_product[<span class="dv">1</span>].figure())</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>asm <span class="op">=</span> Assembly((promoter_cut_product[<span class="dv">1</span>], rbs_cut_product[<span class="dv">1</span>], egfp_cut_product[<span class="dv">1</span>], terminator_cut_product[<span class="dv">1</span>]), algorithm <span class="op">=</span> terminal_overlap, limit <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>candidate <span class="op">=</span> asm.assemble_linear()</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(candidate))</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>candidate[<span class="dv">0</span>].figure()   </span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3
+3
+3
+3
+1</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-107)
+<span class="ansi-bright-yellow-bg">CTCC</span>AGCTGTCACCGGATGTGCTTTCCGGTCTGATGAGTCCGTGAGGACGAAACAGCCTCTACAAATAATTTTGTTTAATCTAGAGATTAAAGAGGAGAAATA    
+    TCGACAGTGGCCTACACGAAAGGCCAGACTACTCAGGCACTCCTGCTTTGTCGGAGATGTTTATTAAAACAAATTAGATCTCTAATTTCTCCTCTTTATCAGT</pre>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-107)
+<span class="ansi-bright-yellow-bg">CTCC</span>AGCTGTCACCGGATGTGCTTTCCGGTCTGATGAGTCCGTGAGGACGAAACAGCCTCTACAAATAATTTTGTTTAATCTAGAGATTAAAGAGGAGAAATA    
+    TCGACAGTGGCCTACACGAAAGGCCAGACTACTCAGGCACTCCTGCTTTGTCGGAGATGTTTATTAAAACAAATTAGATCTCTAATTTCTCCTCTTTATCAGT</pre>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-728)
+<span class="ansi-bright-yellow-bg">GTCA</span>ATGGTGAGCAAGGGCGAGGAGCTGTTCACCGGGGTGGTGCCCATCCTGGTCGAGCTGGACGGCGACGTAAACGGCCACAAGTTCAGCGTGTCCGGCGAGGGCGAGGGCGATGCCACCTACGGCAAGCTGACCCTGAAGTTCATCTGCACCACCGGCAAGCTGCCCGTGCCCTGGCCCACCCTCGTGACCACCCTGACCTACGGCGTGCAGTGCTTCAGCCGCTACCCCGACCACATGAAGCAGCACGACTTCTTCAAGTCCGCCATGCCCGAAGGCTACGTCCAGGAGCGCACCATCTTCTTCAAGGACGACGGCAACTACAAGACCCGCGCCGAGGTGAAGTTCGAGGGCGACACCCTGGTGAACCGCATCGAGCTGAAGGGCATCGACTTCAAGGAGGACGGCAACATCCTGGGGCACAAGCTGGAGTACAACTACAACAGCCACAACGTCTATATCATGGCCGACAAGCAGAAGAACGGCATCAAGGTGAACTTCAAGATCCGCCACAACATCGAGGACGGCAGCGTGCAGCTCGCCGACCACTACCAGCAGAACACCCCCATCGGCGACGGCCCCGTGCTGCTGCCCGACAACCACTACCTGAGCACCCAGTCCGCCCTGAGCAAAGACCCCAACGAGAAGCGCGATCACATGGTCCTGCTGGAGTTCGTGACCGCCGCCGGGATCACTCTCGGCATGGACGAGCTGTACAAGTAA    
+    TACCACTCGTTCCCGCTCCTCGACAAGTGGCCCCACCACGGGTAGGACCAGCTCGACCTGCCGCTGCATTTGCCGGTGTTCAAGTCGCACAGGCCGCTCCCGCTCCCGCTACGGTGGATGCCGTTCGACTGGGACTTCAAGTAGACGTGGTGGCCGTTCGACGGGCACGGGACCGGGTGGGAGCACTGGTGGGACTGGATGCCGCACGTCACGAAGTCGGCGATGGGGCTGGTGTACTTCGTCGTGCTGAAGAAGTTCAGGCGGTACGGGCTTCCGATGCAGGTCCTCGCGTGGTAGAAGAAGTTCCTGCTGCCGTTGATGTTCTGGGCGCGGCTCCACTTCAAGCTCCCGCTGTGGGACCACTTGGCGTAGCTCGACTTCCCGTAGCTGAAGTTCCTCCTGCCGTTGTAGGACCCCGTGTTCGACCTCATGTTGATGTTGTCGGTGTTGCAGATATAGTACCGGCTGTTCGTCTTCTTGCCGTAGTTCCACTTGAAGTTCTAGGCGGTGTTGTAGCTCCTGCCGTCGCACGTCGAGCGGCTGGTGATGGTCGTCTTGTGGGGGTAGCCGCTGCCGGGGCACGACGACGGGCTGTTGGTGATGGACTCGTGGGTCAGGCGGGACTCGTTTCTGGGGTTGCTCTTCGCGCTAGTGTACCAGGACGACCTCAAGCACTGGCGGCGGCCCTAGTGAGAGCCGTACCTGCTCGACATGTTCATTCCCT</pre>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-45)
+<span class="ansi-bright-yellow-bg">GGGA</span>TAGCGTGACCGGCGCATCGGTCACGCTATTTGTTGAG    
+    ATCGCACTGGCCGCGTAGCCAGTGCGATAAACAACTCGCTT</pre>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>name| 4
+     \/
+     /\
+      4|name| 4
+             \/
+             /\
+              4|name</code></pre>
+</div>
+</div>
+<div id="cell-44" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>promoter_cut_product[<span class="dv">1</span>].figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="ansi-escaped-output">
+<pre>Dseqrecord(-107)
+<span class="ansi-bright-yellow-bg">CTCC</span>AGCTGTCACCGGATGTGCTTTCCGGTCTGATGAGTCCGTGAGGACGAAACAGCCTCTACAAATAATTTTGTTTAATCTAGAGATTAAAGAGGAGAAATA    
+    TCGACAGTGGCCTACACGAAAGGCCAGACTACTCAGGCACTCCTGCTTTGTCGGAGATGTTTATTAAAACAAATTAGATCTCTAATTTCTCCTCTTTATCAGT</pre>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="assembly-with-wrong-fragments" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="assembly-with-wrong-fragments"><span class="header-section-number">2.9</span> Assembly with wrong fragments</h2>
+<div id="cell-46" class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>promoter <span class="op">=</span> read(<span class="st">"data/parts/pUC19-J23100.gb"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>terminator <span class="op">=</span> read(<span class="st">"data/parts/pUC19-L2U3H03.gb"</span>)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>rbs <span class="op">=</span> read(<span class="st">"data/parts/pUC19-RB0030.gb"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
