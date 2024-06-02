@@ -5,8 +5,8 @@ title: "Home"
 ## Welcome
 
 - 2024년 1학기 카이스트 공학생물학대학원 설계제작 강의 노트 
-- github site: https://github.com/greendaygh/kaist_design_build_2024
-- website: https://greendaygh.github.io/kaist_design_build_2024/
+- github site: [https://github.com/greendaygh/kaist_design_build_2024](https://github.com/greendaygh/kaist_design_build_2024)
+- website: [https://greendaygh.github.io/kaist_design_build_2024/](https://greendaygh.github.io/kaist_design_build_2024/)
 
 ## 환경
 

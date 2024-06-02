@@ -106,7 +106,7 @@ FEATURES             Location/Qualifiers
      misc_feature    1363..1366
                      /label=oh-f3-f4-F
      misc_feature    1367..1373
-                     /label=BasI-R
+                     /label=BsaI-R
      primer_bind     complement(1374..1391)
                      /label=M13 Forward
                      /note="In lacZ gene. Also called M13-F20 or M13 (-21)
