@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>KAIST Design, Build - 3&nbsp; Long-read sequence analysis for part assembly test</title>
+<title>KAIST Design, Build - 3&nbsp; Test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sequencing.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Long-read sequence analysis for part assembly test</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sequencing.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Test</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -165,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sequencing.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Long-read sequence analysis for part assembly test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Test</span></span></a>
   </div>
 </li>
     </ul>
@@ -211,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Long-read sequence analysis for part assembly test</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Test</span></h1>
 </div>
 
 
@@ -1419,7 +1419,7 @@ Tool returned:
 <ul>
 <li>Variant calling (it will take &gt;10min)</li>
 </ul>
-<div id="cell-76" class="cell" data-outputid="dcbe2676-aa1c-454a-d4a4-e95c7f8ceb56">
+<div id="cell-76" class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1717559085317,&quot;user_tz&quot;:-540,&quot;elapsed&quot;:1040630,&quot;user&quot;:{&quot;displayName&quot;:&quot;haseong kim&quot;,&quot;userId&quot;:&quot;15555769759698200025&quot;}}" data-outputid="dcbe2676-aa1c-454a-d4a4-e95c7f8ceb56" data-execution_count="141">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>vcf_file <span class="op">=</span> reference_filename.replace(<span class="st">"fasta"</span>, <span class="st">"vcf"</span>)</span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1475,14 +1475,50 @@ Running:
 03:27:39.199 WARN  InbreedingCoeff - InbreedingCoeff will not be calculated at position pACBB_PL:77 and possibly subsequent; at least 10 samples must have called genotypes
 03:28:56.467 INFO  ProgressMeter -        pACBB_PL:1002              1.4                    10              7.0
 03:32:13.771 INFO  ProgressMeter -        pACBB_PL:3014              4.7                    20              4.2
-03:36:17.536 INFO  ProgressMeter -        pACBB_PL:4670              8.8                    30              3.4</code></pre>
+03:36:17.536 INFO  ProgressMeter -        pACBB_PL:4670              8.8                    30              3.4
+03:42:35.816 INFO  ProgressMeter -        pACBB_PL:6309             15.1                    40              2.7
+03:44:46.102 INFO  HaplotypeCaller - 0 read(s) filtered by: MappingQualityReadFilter 
+0 read(s) filtered by: MappingQualityAvailableReadFilter 
+0 read(s) filtered by: MappedReadFilter 
+0 read(s) filtered by: NotSecondaryAlignmentReadFilter 
+0 read(s) filtered by: NotDuplicateReadFilter 
+0 read(s) filtered by: PassesVendorQualityCheckReadFilter 
+0 read(s) filtered by: NonZeroReferenceLengthAlignmentReadFilter 
+1 read(s) filtered by: GoodCigarReadFilter 
+0 read(s) filtered by: WellformedReadFilter 
+1 total reads filtered out of 9167 reads processed
+03:44:46.102 INFO  ProgressMeter -        pACBB_PL:6309             17.3                    46              2.7
+03:44:46.103 INFO  ProgressMeter - Traversal complete. Processed 46 total regions in 17.3 minutes.
+03:44:46.122 INFO  VectorLoglessPairHMM - Time spent in setup for JNI call : 0.168806741
+03:44:46.123 INFO  PairHMM - Total compute time in PairHMM computeLogLikelihoods() : 982.7120195350001
+03:44:46.123 INFO  SmithWatermanAligner - Total compute time in native Smith-Waterman : 2.93 sec
+03:44:46.125 INFO  HaplotypeCaller - Shutting down engine
+[June 5, 2024 at 3:44:46 AM GMT] org.broadinstitute.hellbender.tools.walkers.haplotypecaller.HaplotypeCaller done. Elapsed time: 17.27 minutes.
+Runtime.totalMemory()=1501560832</code></pre>
 </div>
 </div>
-<div id="cell-77" class="cell">
+<div id="cell-77" class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1717559086421,&quot;user_tz&quot;:-540,&quot;elapsed&quot;:6,&quot;user&quot;:{&quot;displayName&quot;:&quot;haseong kim&quot;,&quot;userId&quot;:&quot;15555769759698200025&quot;}}" data-outputid="e7731e2d-3946-4d96-8aea-398a289b2150" data-execution_count="142">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>ls <span class="op">-</span>alh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>total 37M
+drwx------ 2 root root 4.0K Jun  5 02:26 bam
+-rw------- 1 root root  19M Jun  5 01:53 FAT01036_pass_barcode01_5eb57f2c_2b75e8f5_0.fastq.gz
+-rw------- 1 root root  19M Jun  5 01:53 FAT01036_pass_barcode01_5eb57f2c_2b75e8f5_1.fastq.gz
+drwx------ 2 root root 4.0K Jun  5 02:56 info
+drwx------ 2 root root 4.0K Jun  5 02:14 .ipynb_checkpoints
+-rw------- 1 root root   16 Jun  5 02:53 pACBB_PL.bed
+-rw------- 1 root root  108 Jun  5 03:06 pACBB_PL.dict
+-rw------- 1 root root 7.2K Jun  5 01:56 pACBB_PL.fasta
+-rw------- 1 root root   23 Jun  5 02:53 pACBB_PL.fasta.fai
+-rw------- 1 root root  15K Jun  5 01:53 pACBB-PL-from_EcoRI_hs.gb
+-rw------- 1 root root  22K Jun  5 03:44 pACBB_PL.vcf
+-rw------- 1 root root  285 Jun  5 03:44 pACBB_PL.vcf.idx
+drwx------ 2 root root 4.0K Jun  5 02:24 sam
+drwx------ 2 root root 4.0K Jun  5 03:23 sort</code></pre>
 </div>
-<div id="cell-78" class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1717520515808,&quot;user_tz&quot;:-540,&quot;elapsed&quot;:690,&quot;user&quot;:{&quot;displayName&quot;:&quot;haseong kim&quot;,&quot;userId&quot;:&quot;15555769759698200025&quot;}}" data-outputid="79864651-0b73-43e3-bf85-bef7f86b4169" data-execution_count="109">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>cat pACBB_PL.vcf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-78" class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1717559087760,&quot;user_tz&quot;:-540,&quot;elapsed&quot;:409,&quot;user&quot;:{&quot;displayName&quot;:&quot;haseong kim&quot;,&quot;userId&quot;:&quot;15555769759698200025&quot;}}" data-outputid="56424886-4486-48ae-b413-a277f63474ca" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>cat pACBB_PL.vcf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>##fileformat=VCFv4.2
 ##FILTER=&lt;ID=LowQual,Description="Low quality"&gt;
@@ -1491,13 +1527,12 @@ Running:
 ##FORMAT=&lt;ID=GQ,Number=1,Type=Integer,Description="Genotype Quality"&gt;
 ##FORMAT=&lt;ID=GT,Number=1,Type=String,Description="Genotype"&gt;
 ##FORMAT=&lt;ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification"&gt;
-##GATKCommandLine=&lt;ID=HaplotypeCaller,CommandLine="HaplotypeCaller  --output /design_build/my.vcf --input /design_build/reads_with_RG.bam --reference /design_build/pACBB_PL.fasta  --use-new-qual-calculator true --use-old-qual-calculator false --annotate-with-num-discovered-alleles false --heterozygosity 0.001 --indel-heterozygosity 1.25E-4 --heterozygosity-stdev 0.01 --standard-min-confidence-threshold-for-calling 30.0 --max-alternate-alleles 6 --max-genotype-count 1024 --sample-ploidy 2 --num-reference-samples-if-no-call 0 --genotyping-mode DISCOVERY --genotype-filtered-alleles false --contamination-fraction-to-filter 0.0 --output-mode EMIT_VARIANTS_ONLY --all-site-pls false --gvcf-gq-bands 1 --gvcf-gq-bands 2 --gvcf-gq-bands 3 --gvcf-gq-bands 4 --gvcf-gq-bands 5 --gvcf-gq-bands 6 --gvcf-gq-bands 7 --gvcf-gq-bands 8 --gvcf-gq-bands 9 --gvcf-gq-bands 10 --gvcf-gq-bands 11 --gvcf-gq-bands 12 --gvcf-gq-bands 13 --gvcf-gq-bands 14 --gvcf-gq-bands 15 --gvcf-gq-bands 16 --gvcf-gq-bands 17 --gvcf-gq-bands 18 --gvcf-gq-bands 19 --gvcf-gq-bands 20 --gvcf-gq-bands 21 --gvcf-gq-bands 22 --gvcf-gq-bands 23 --gvcf-gq-bands 24 --gvcf-gq-bands 25 --gvcf-gq-bands 26 --gvcf-gq-bands 27 --gvcf-gq-bands 28 --gvcf-gq-bands 29 --gvcf-gq-bands 30 --gvcf-gq-bands 31 --gvcf-gq-bands 32 --gvcf-gq-bands 33 --gvcf-gq-bands 34 --gvcf-gq-bands 35 --gvcf-gq-bands 36 --gvcf-gq-bands 37 --gvcf-gq-bands 38 --gvcf-gq-bands 39 --gvcf-gq-bands 40 --gvcf-gq-bands 41 --gvcf-gq-bands 42 --gvcf-gq-bands 43 --gvcf-gq-bands 44 --gvcf-gq-bands 45 --gvcf-gq-bands 46 --gvcf-gq-bands 47 --gvcf-gq-bands 48 --gvcf-gq-bands 49 --gvcf-gq-bands 50 --gvcf-gq-bands 51 --gvcf-gq-bands 52 --gvcf-gq-bands 53 --gvcf-gq-bands 54 --gvcf-gq-bands 55 --gvcf-gq-bands 56 --gvcf-gq-bands 57 --gvcf-gq-bands 58 --gvcf-gq-bands 59 --gvcf-gq-bands 60 --gvcf-gq-bands 70 --gvcf-gq-bands 80 --gvcf-gq-bands 90 --gvcf-gq-bands 99 --floor-blocks false --indel-size-to-eliminate-in-ref-model 10 --use-alleles-trigger false --disable-optimizations false --just-determine-active-regions false --dont-genotype false --do-not-run-physical-phasing false --use-filtered-reads-for-annotations false --correct-overlapping-quality false --adaptive-pruning false --do-not-recover-dangling-branches false --recover-dangling-heads false --consensus false --dont-trim-active-regions false --max-disc-ar-extension 25 --max-gga-ar-extension 300 --padding-around-indels 150 --padding-around-snps 20 --kmer-size 10 --kmer-size 25 --dont-increase-kmer-sizes-for-cycles false --allow-non-unique-kmers-in-ref false --num-pruning-samples 1 --min-dangling-branch-length 4 --recover-all-dangling-branches false --max-num-haplotypes-in-population 128 --min-pruning 2 --adaptive-pruning-initial-error-rate 0.001 --pruning-lod-threshold 2.302585092994046 --max-unpruned-variants 100 --debug-assembly false --debug-graph-transformations false --capture-assembly-failure-bam false --error-correct-reads false --kmer-length-for-read-error-correction 25 --min-observations-for-kmer-to-be-solid 20 --likelihood-calculation-engine PairHMM --base-quality-score-threshold 18 --pair-hmm-gap-continuation-penalty 10 --pair-hmm-implementation FASTEST_AVAILABLE --pcr-indel-model CONSERVATIVE --phred-scaled-global-read-mismapping-rate 45 --native-pair-hmm-threads 4 --native-pair-hmm-use-double-precision false --bam-writer-type CALLED_HAPLOTYPES --dont-use-soft-clipped-bases false --min-base-quality-score 10 --smith-waterman JAVA --emit-ref-confidence NONE --max-mnp-distance 0 --min-assembly-region-size 50 --max-assembly-region-size 300 --assembly-region-padding 100 --max-reads-per-alignment-start 50 --active-probability-threshold 0.002 --max-prob-propagation-distance 50 --force-active false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --minimum-mapping-quality 20 --disable-tool-default-annotations false --enable-all-annotations false --allow-old-rms-mapping-quality-annotation-data false",Version="4.1.3.0",Date="June 4, 2024 4:27:10 PM UTC"&gt;
+##GATKCommandLine=&lt;ID=HaplotypeCaller,CommandLine="HaplotypeCaller --output /design_build/pACBB_PL.vcf --input /design_build/sort/FAT01036_pass_barcode01_5eb57f2c_2b75e8f5_merged-sort-withrg.bam --reference /design_build/pACBB_PL.fasta --use-posteriors-to-calculate-qual false --dont-use-dragstr-priors false --use-new-qual-calculator true --annotate-with-num-discovered-alleles false --heterozygosity 0.001 --indel-heterozygosity 1.25E-4 --heterozygosity-stdev 0.01 --standard-min-confidence-threshold-for-calling 30.0 --max-alternate-alleles 6 --max-genotype-count 1024 --sample-ploidy 2 --num-reference-samples-if-no-call 0 --genotype-assignment-method USE_PLS_TO_ASSIGN --contamination-fraction-to-filter 0.0 --output-mode EMIT_VARIANTS_ONLY --all-site-pls false --flow-likelihood-parallel-threads 0 --flow-likelihood-optimized-comp false --trim-to-haplotype true --exact-matching false --flow-use-t0-tag false --flow-probability-threshold 0.003 --flow-remove-non-single-base-pair-indels false --flow-remove-one-zero-probs false --flow-quantization-bins 121 --flow-fill-empty-bins-value 0.001 --flow-symmetric-indel-probs false --flow-report-insertion-or-deletion false --flow-disallow-probs-larger-than-call false --flow-lump-probs false --flow-retain-max-n-probs-base-format false --flow-probability-scaling-factor 10 --flow-order-cycle-length 4 --keep-boundary-flows false --gvcf-gq-bands 1 --gvcf-gq-bands 2 --gvcf-gq-bands 3 --gvcf-gq-bands 4 --gvcf-gq-bands 5 --gvcf-gq-bands 6 --gvcf-gq-bands 7 --gvcf-gq-bands 8 --gvcf-gq-bands 9 --gvcf-gq-bands 10 --gvcf-gq-bands 11 --gvcf-gq-bands 12 --gvcf-gq-bands 13 --gvcf-gq-bands 14 --gvcf-gq-bands 15 --gvcf-gq-bands 16 --gvcf-gq-bands 17 --gvcf-gq-bands 18 --gvcf-gq-bands 19 --gvcf-gq-bands 20 --gvcf-gq-bands 21 --gvcf-gq-bands 22 --gvcf-gq-bands 23 --gvcf-gq-bands 24 --gvcf-gq-bands 25 --gvcf-gq-bands 26 --gvcf-gq-bands 27 --gvcf-gq-bands 28 --gvcf-gq-bands 29 --gvcf-gq-bands 30 --gvcf-gq-bands 31 --gvcf-gq-bands 32 --gvcf-gq-bands 33 --gvcf-gq-bands 34 --gvcf-gq-bands 35 --gvcf-gq-bands 36 --gvcf-gq-bands 37 --gvcf-gq-bands 38 --gvcf-gq-bands 39 --gvcf-gq-bands 40 --gvcf-gq-bands 41 --gvcf-gq-bands 42 --gvcf-gq-bands 43 --gvcf-gq-bands 44 --gvcf-gq-bands 45 --gvcf-gq-bands 46 --gvcf-gq-bands 47 --gvcf-gq-bands 48 --gvcf-gq-bands 49 --gvcf-gq-bands 50 --gvcf-gq-bands 51 --gvcf-gq-bands 52 --gvcf-gq-bands 53 --gvcf-gq-bands 54 --gvcf-gq-bands 55 --gvcf-gq-bands 56 --gvcf-gq-bands 57 --gvcf-gq-bands 58 --gvcf-gq-bands 59 --gvcf-gq-bands 60 --gvcf-gq-bands 70 --gvcf-gq-bands 80 --gvcf-gq-bands 90 --gvcf-gq-bands 99 --floor-blocks false --indel-size-to-eliminate-in-ref-model 10 --disable-optimizations false --dragen-mode false --dragen-378-concordance-mode false --flow-mode NONE --apply-bqd false --apply-frd false --disable-spanning-event-genotyping false --transform-dragen-mapping-quality false --mapping-quality-threshold-for-genotyping 20 --max-effective-depth-adjustment-for-frd 0 --just-determine-active-regions false --dont-genotype false --do-not-run-physical-phasing false --do-not-correct-overlapping-quality false --use-filtered-reads-for-annotations false --use-flow-aligner-for-stepwise-hc-filtering false --adaptive-pruning false --do-not-recover-dangling-branches false --recover-dangling-heads false --kmer-size 10 --kmer-size 25 --dont-increase-kmer-sizes-for-cycles false --allow-non-unique-kmers-in-ref false --num-pruning-samples 1 --min-dangling-branch-length 4 --recover-all-dangling-branches false --max-num-haplotypes-in-population 128 --min-pruning 2 --adaptive-pruning-initial-error-rate 0.001 --pruning-lod-threshold 2.302585092994046 --pruning-seeding-lod-threshold 9.210340371976184 --max-unpruned-variants 100 --linked-de-bruijn-graph false --disable-artificial-haplotype-recovery false --enable-legacy-graph-cycle-detection false --debug-assembly false --debug-graph-transformations false --capture-assembly-failure-bam false --num-matching-bases-in-dangling-end-to-recover -1 --error-correction-log-odds -Infinity --error-correct-reads false --kmer-length-for-read-error-correction 25 --min-observations-for-kmer-to-be-solid 20 --likelihood-calculation-engine PairHMM --base-quality-score-threshold 18 --dragstr-het-hom-ratio 2 --dont-use-dragstr-pair-hmm-scores false --pair-hmm-gap-continuation-penalty 10 --expected-mismatch-rate-for-read-disqualification 0.02 --pair-hmm-implementation FASTEST_AVAILABLE --pcr-indel-model CONSERVATIVE --phred-scaled-global-read-mismapping-rate 45 --disable-symmetric-hmm-normalizing false --disable-cap-base-qualities-to-map-quality false --enable-dynamic-read-disqualification-for-genotyping false --dynamic-read-disqualification-threshold 1.0 --native-pair-hmm-threads 4 --native-pair-hmm-use-double-precision false --flow-hmm-engine-min-indel-adjust 6 --flow-hmm-engine-flat-insertion-penatly 45 --flow-hmm-engine-flat-deletion-penatly 45 --pileup-detection false --use-pdhmm false --use-pdhmm-overlap-optimization false --make-determined-haps-from-pd-code false --print-pileupcalling-status false --fallback-gga-if-pdhmm-fails true --pileup-detection-enable-indel-pileup-calling false --pileup-detection-active-region-phred-threshold 0.0 --num-artificial-haplotypes-to-add-per-allele 5 --artifical-haplotype-filtering-kmer-size 10 --pileup-detection-snp-alt-threshold 0.1 --pileup-detection-indel-alt-threshold 0.1 --pileup-detection-absolute-alt-depth 0.0 --pileup-detection-snp-adjacent-to-assembled-indel-range 5 --pileup-detection-snp-basequality-filter 12 --pileup-detection-bad-read-tolerance 0.0 --pileup-detection-proper-pair-read-badness true --pileup-detection-edit-distance-read-badness-threshold 0.08 --pileup-detection-chimeric-read-badness true --pileup-detection-template-mean-badness-threshold 0.0 --pileup-detection-template-std-badness-threshold 0.0 --pileup-detection-filter-assembly-alt-bad-read-tolerance 0.0 --pileup-detection-edit-distance-read-badness-for-assembly-filtering-threshold 0.12 --bam-writer-type CALLED_HAPLOTYPES --dont-use-soft-clipped-bases false --override-fragment-softclip-check false --min-base-quality-score 10 --smith-waterman FASTEST_AVAILABLE --emit-ref-confidence NONE --max-mnp-distance 0 --force-call-filtered-alleles false --reference-model-deletion-quality 30 --soft-clip-low-quality-ends false --allele-informative-reads-overlap-margin 2 --smith-waterman-dangling-end-match-value 25 --smith-waterman-dangling-end-mismatch-penalty -50 --smith-waterman-dangling-end-gap-open-penalty -110 --smith-waterman-dangling-end-gap-extend-penalty -6 --smith-waterman-haplotype-to-reference-match-value 200 --smith-waterman-haplotype-to-reference-mismatch-penalty -150 --smith-waterman-haplotype-to-reference-gap-open-penalty -260 --smith-waterman-haplotype-to-reference-gap-extend-penalty -11 --smith-waterman-read-to-haplotype-match-value 10 --smith-waterman-read-to-haplotype-mismatch-penalty -15 --smith-waterman-read-to-haplotype-gap-open-penalty -30 --smith-waterman-read-to-haplotype-gap-extend-penalty -5 --flow-assembly-collapse-hmer-size 0 --flow-assembly-collapse-partial-mode false --flow-filter-alleles false --flow-filter-alleles-qual-threshold 30.0 --flow-filter-alleles-sor-threshold 3.0 --flow-filter-lone-alleles false --flow-filter-alleles-debug-graphs false --min-assembly-region-size 50 --max-assembly-region-size 300 --active-probability-threshold 0.002 --max-prob-propagation-distance 50 --force-active false --assembly-region-padding 100 --padding-around-indels 75 --padding-around-snps 20 --padding-around-strs 75 --max-extension-into-assembly-region-padding-legacy 25 --max-reads-per-alignment-start 50 --enable-legacy-assembly-region-trimming false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --minimum-mapping-quality 20 --disable-tool-default-annotations false --enable-all-annotations false --allow-old-rms-mapping-quality-annotation-data false",Version="4.5.0.0",Date="June 5, 2024 at 3:27:30 AM GMT"&gt;
 ##INFO=&lt;ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed"&gt;
 ##INFO=&lt;ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed"&gt;
 ##INFO=&lt;ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes"&gt;
 ##INFO=&lt;ID=BaseQRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities"&gt;
 ##INFO=&lt;ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered"&gt;
-##INFO=&lt;ID=DS,Number=0,Type=Flag,Description="Were any of the samples downsampled?"&gt;
 ##INFO=&lt;ID=ExcessHet,Number=1,Type=Float,Description="Phred-scaled p-value for exact test of excess heterozygosity"&gt;
 ##INFO=&lt;ID=FS,Number=1,Type=Float,Description="Phred-scaled p-value using Fisher's exact test to detect strand bias"&gt;
 ##INFO=&lt;ID=InbreedingCoeff,Number=1,Type=Float,Description="Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation"&gt;
@@ -1511,48 +1546,58 @@ Running:
 ##contig=&lt;ID=pACBB_PL,length=7214&gt;
 ##source=HaplotypeCaller
 #CHROM  POS ID  REF ALT QUAL    FILTER  INFO    FORMAT  pACBB-PL
-pACBB_PL    77  .   T   G   2825.03 .   AC=2;AF=1.00;AN=2;DP=89;ExcessHet=3.0103;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=59.97;QD=31.74;SOR=3.134    GT:AD:DP:GQ:PL  1/1:0,89:89:99:2839,263,0
-pACBB_PL    132 .   G   GATTTTGTT   111.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.856;DP=12;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=12.40;ReadPosRankSum=0.906;SOR=0.527  GT:AD:DP:GQ:PL  0/1:5,4:9:99:119,0,116
-pACBB_PL    134 .   C   T   139.06  .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.431;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=19.87;ReadPosRankSum=1.282;SOR=1.329   GT:AD:DP:GQ:PL  0/1:2,5:7:77:170,0,77
-pACBB_PL    135 .   C   A   56.63   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.834;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=8.09;ReadPosRankSum=-1.282;SOR=0.307   GT:AD:DP:GQ:PL  0/1:5,2:7:64:64,0,178
-pACBB_PL    136 .   G   A   140.02  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.834;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=20.00;ReadPosRankSum=1.282;SOR=1.329  GT:AD:DP:GQ:PL  0/1:2,5:7:69:173,0,69
-pACBB_PL    138 .   G   T   165.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-0.623;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=23.66;ReadPosRankSum=1.282;SOR=1.329  GT:AD:DP:GQ:PL  0/1:2,5:7:69:173,0,69
-pACBB_PL    142 .   AG  A   41.64   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.282;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=5.95;ReadPosRankSum=-0.524;SOR=0.148  GT:AD:DP:GQ:PL  0/1:4,3:7:49:49,0,146
-pACBB_PL    144 .   ATCC    A   70.04   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.383;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=10.01;ReadPosRankSum=0.674;SOR=0.693  GT:AD:DP:GQ:PL  0/1:2,5:7:69:132,0,69
-pACBB_PL    153 .   AAGC    A   151.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.718;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=21.66;ReadPosRankSum=0.842;SOR=0.941   GT:AD:DP:GQ:PL  0/1:3,4:7:79:159,0,79
-pACBB_PL    157 .   T   TTTG    186.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.282;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=26.66;ReadPosRankSum=1.036;SOR=1.329   GT:AD:DP:GQ:PL  0/1:2,5:7:69:194,0,69
-pACBB_PL    160 .   A   AGGCCTTTTT  133.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.036;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=19.09;ReadPosRankSum=0.967;SOR=1.022   GT:AD:DP:GQ:PL  0/1:2,5:7:69:141,0,69
-pACBB_PL    162 .   C   CGAAAA  196.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.712;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=28.09;ReadPosRankSum=1.465;SOR=1.609   GT:AD:DP:GQ:PL  0/1:2,5:7:69:204,0,69
-pACBB_PL    1079    .   GA  G   104.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-4.168;DP=61;ExcessHet=3.0103;FS=7.361;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=1.71;ReadPosRankSum=0.399;SOR=2.403  GT:AD:DP:GQ:PL  0/1:52,9:61:99:112,0,1656
-pACBB_PL    1169    .   A   ATTAAACAAAATTATTTGTAGAGGCTGTTTCGTCCTCACGGACTCATCAGACCGGAAAGCACATCCGGTGACAGCT    31.64   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.674;DP=2;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=15.82;ReadPosRankSum=-0.674;SOR=0.693  GT:AD:DP:GQ:PL  0/1:1,1:2:39:39,0,39
-pACBB_PL    1181    .   C   T   35.44   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=34.72;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
-pACBB_PL    1204    .   G   A   35.44   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=30.50;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
-pACBB_PL    1206    .   C   A   66.27   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=29.86;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:6:78,6,0
-pACBB_PL    1326    .   ATTTTGTT    A   129.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.543;DP=40;ExcessHet=3.0103;FS=1.937;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=3.93;ReadPosRankSum=0.352;SOR=1.251  GT:AD:DP:GQ:PL  0/1:27,6:33:99:137,0,1165
-pACBB_PL    1339    .   T   C   98.64   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-2.308;DP=36;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=3.08;SOR=1.002   GT:AD:DP:GQ:PL  0/1:26,6:32:99:106,0,973
-pACBB_PL    1345    .   AGGCCCC A   31.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.773;DP=33;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=1.02;ReadPosRankSum=-0.381;SOR=0.693  GT:AD:DP:GQ:PL  0/1:28,3:31:39:39,0,1259
-pACBB_PL    1347    .   GC  G   72.07   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.467;DP=33;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=2.67;ReadPosRankSum=1.404;SOR=1.048   GT:AD:DP:GQ:PL  0/1:18,9:27:99:185,0,525
-pACBB_PL    1362    .   AGGCCTTTTT  A   34.59   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.386;DP=33;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=1.12;ReadPosRankSum=-0.837;SOR=0.752  GT:AD:DP:GQ:PL  0/1:28,3:31:42:42,0,1205
-pACBB_PL    1366    .   CT  C   49.83   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.473;DP=33;ExcessHet=3.0103;FS=4.039;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=1.78;ReadPosRankSum=-1.253;SOR=1.863  GT:AD:DP:GQ:PL  0/1:20,8:28:99:149,0,618
-pACBB_PL    1399    .   AT  A   344.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-0.376;DP=34;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=10.14;ReadPosRankSum=-0.515;SOR=0.527    GT:AD:DP:GQ:PL  0/1:17,17:34:99:352,0,407
-pACBB_PL    1989    .   C   G   121.80  .   AC=2;AF=1.00;AN=2;DP=3;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=26.67;SOR=1.179    GT:AD:DP:GQ:PL  1/1:0,3:3:9:135,9,0
-pACBB_PL    2418    .   T   C   1107.03 .   AC=2;AF=1.00;AN=2;DP=28;ExcessHet=3.0103;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=29.02;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,28:28:84:1121,84,0
-pACBB_PL    3425    .   T   TAGCTGTCACCGGATGTGCTTTCCGGTCTGATGAGTCCGTGAGGACGAAACAGCCTCTACAAATAATTTTGTTTAA    49.64   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.221;DP=10;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=4.96;ReadPosRankSum=-0.862;SOR=0.976  GT:AD:DP:GQ:PL  0/1:8,2:10:57:57,0,372
-pACBB_PL    3432    .   GATT    G   288.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.282;DP=11;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=26.24;ReadPosRankSum=0.431;SOR=0.859  GT:AD:DP:GQ:PL  0/1:3,8:11:99:296,0,101
-pACBB_PL    3448    .   TA  T   474.02  .   AC=2;AF=1.00;AN=2;DP=11;ExcessHet=3.0103;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=28.22;SOR=2.303    GT:AD:DP:GQ:PL  1/1:0,11:11:33:488,33,0
-pACBB_PL    4181    .   G   GA  41.79   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-0.967;DP=4;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=13.93;ReadPosRankSum=0.967;SOR=1.179  GT:AD:DP:GQ:PL  0/1:1,2:3:36:55,0,36
-pACBB_PL    4714    .   GT  G   281.98  .   AC=2;AF=1.00;AN=2;DP=7;ExcessHet=3.0103;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=34.81;SOR=2.584 GT:AD:DP:GQ:PL  1/1:0,7:7:21:296,21,0
-pACBB_PL    4822    .   TC  T   33.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.619;DP=8;ExcessHet=3.0103;FS=3.332;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=4.20;ReadPosRankSum=0.792;SOR=0.105    GT:AD:DP:GQ:PL  0/1:6,2:8:41:41,0,205
-pACBB_PL    5211    .   C   CA  3316.06 .   AC=2;AF=1.00;AN=2;DP=74;ExcessHet=3.0103;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=28.71;SOR=1.061    GT:AD:DP:GQ:PL  1/1:0,74:74:99:3330,223,0
-pACBB_PL    5243    .   TA  T   179.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-0.342;DP=75;ExcessHet=3.0103;FS=17.555;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=2.46;ReadPosRankSum=-0.572;SOR=3.442    GT:AD:DP:GQ:PL  0/1:54,19:73:99:187,0,1647
-pACBB_PL    5326    .   G   A   3359.03 .   AC=2;AF=1.00;AN=2;DP=75;ExcessHet=3.0103;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=26.97;SOR=1.091    GT:AD:DP:GQ:PL  1/1:0,75:75:99:3373,226,0
-pACBB_PL    5403    .   C   T   3239.05 .   AC=2;AF=1.00;AN=2;DP=87;ExcessHet=3.0103;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=26.69;SOR=1.013    GT:AD:DP:GQ:PL  1/1:0,87:87:99:3548,261,0
-pACBB_PL    5897    .   AT  A   288.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-2.030;DP=45;ExcessHet=3.0103;FS=1.321;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=6.56;ReadPosRankSum=-0.972;SOR=0.676 GT:AD:DP:GQ:PL  0/1:27,17:44:99:296,0,829
-pACBB_PL    6185    .   TC  T   108.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.511;DP=95;ExcessHet=3.0103;FS=41.476;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=1.14;ReadPosRankSum=-1.255;SOR=5.133    GT:AD:DP:GQ:PL  0/1:83,12:95:99:116,0,3120
-pACBB_PL    6347    .   GA  G   2811.64 .   AC=1;AF=0.500;AN=2;BaseQRankSum=-0.617;DP=237;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=11.91;ReadPosRankSum=-5.123;SOR=0.698   GT:AD:DP:GQ:PL  0/1:122,114:236:99:2819,0,2710
-pACBB_PL    6553    .   GC  G   114.09  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-0.319;DP=6;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=19.02;ReadPosRankSum=-1.150;SOR=1.609 GT:AD:DP:GQ:PL  0/1:1,5:6:15:98,0,15
-pACBB_PL    6635    .   T   TC  103.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.000;DP=6;ExcessHet=3.0103;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=17.27;ReadPosRankSum=1.282;SOR=1.329   GT:AD:DP:GQ:PL  0/1:2,4:6:47:111,0,47
-pACBB_PL    6782    .   AC  A   2099.64 .   AC=1;AF=0.500;AN=2;BaseQRankSum=-2.056;DP=179;ExcessHet=3.0103;FS=37.037;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=11.73;ReadPosRankSum=-5.146;SOR=1.439  GT:AD:DP:GQ:PL  0/1:94,85:179:99:2107,0,2385</code></pre>
+pACBB_PL    77  .   T   G   1325.06 .   AC=2;AF=1.00;AN=2;DP=37;ExcessHet=0.0000;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=59.92;QD=34.72;SOR=3.086    GT:AD:DP:GQ:PL  1/1:0,37:37:99:1339,110,0
+pACBB_PL    132 .   G   GATTTTGTT   90.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.645;DP=7;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=18.12;ReadPosRankSum=1.645;SOR=1.022   GT:AD:DP:GQ:PL  0/1:2,3:5:40:98,0,40
+pACBB_PL    134 .   C   T   112.63  .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.150;DP=7;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=22.53;ReadPosRankSum=1.150;SOR=1.022   GT:AD:DP:GQ:PL  0/1:2,3:5:40:120,0,40
+pACBB_PL    135 .   C   A   32.64   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.150;DP=7;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=6.53;ReadPosRankSum=-1.150;SOR=0.446   GT:AD:DP:GQ:PL  0/1:3,2:5:40:40,0,120
+pACBB_PL    136 .   G   A   115.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.150;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=28.91;ReadPosRankSum=1.150;SOR=1.609  GT:AD:DP:GQ:PL  0/1:1,3:4:33:123,0,33
+pACBB_PL    138 .   G   T   115.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.150;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=28.91;ReadPosRankSum=1.150;SOR=1.609  GT:AD:DP:GQ:PL  0/1:1,3:4:33:123,0,33
+pACBB_PL    149 .   G   GGCCCC  51.98   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-0.674;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=12.99;ReadPosRankSum=0.674;SOR=0.693  GT:AD:DP:GQ:PL  0/1:1,3:4:33:82,0,33
+pACBB_PL    153 .   AAGC    A   70.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.383;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=17.65;ReadPosRankSum=1.383;SOR=0.693   GT:AD:DP:GQ:PL  0/1:2,2:4:43:78,0,43
+pACBB_PL    157 .   T   TTTG    105.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.967;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=26.40;ReadPosRankSum=0.967;SOR=1.179   GT:AD:DP:GQ:PL  0/1:1,3:4:33:113,0,33
+pACBB_PL    160 .   A   AGGCCTTTTT  83.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.967;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=20.90;ReadPosRankSum=0.967;SOR=1.179   GT:AD:DP:GQ:PL  0/1:1,3:4:33:91,0,33
+pACBB_PL    162 .   C   CGAAAA  115.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.319;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=28.90;ReadPosRankSum=1.150;SOR=1.609   GT:AD:DP:GQ:PL  0/1:1,3:4:33:123,0,33
+pACBB_PL    1161    .   T   TTAA    70.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.674;DP=5;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=17.65;ReadPosRankSum=-0.431;SOR=0.105  GT:AD:DP:GQ:PL  0/1:2,2:4:78:78,0,78
+pACBB_PL    1181    .   C   T   115.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.150;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=28.91;ReadPosRankSum=-1.150;SOR=0.446 GT:AD:DP:GQ:PL  0/1:1,3:4:33:123,0,33
+pACBB_PL    1204    .   G   A   115.64  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.150;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=28.91;ReadPosRankSum=-1.150;SOR=0.446 GT:AD:DP:GQ:PL  0/1:1,3:4:33:123,0,33
+pACBB_PL    1206    .   C   A   268.01  .   AC=2;AF=1.00;AN=2;DP=11;ExcessHet=0.0000;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=30.50;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,7:7:21:282,21,0
+pACBB_PL    1213    .   CT  C   92.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-2.071;DP=13;ExcessHet=0.0000;FS=2.616;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=7.72;ReadPosRankSum=-0.409;SOR=0.169 GT:AD:DP:GQ:PL  0/1:8,4:12:99:100,0,261
+pACBB_PL    1326    .   ATTTTGTTAT  A   53.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-2.287;DP=15;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=5.36;ReadPosRankSum=-0.253;SOR=1.609 GT:AD:DP:GQ:PL  0/1:8,2:10:61:61,0,329
+pACBB_PL    1339    .   T   G   49.64   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.114;DP=11;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=4.51;ReadPosRankSum=-0.447;SOR=1.371  GT:AD:DP:GQ:PL  0/1:9,2:11:57:57,0,372
+pACBB_PL    1347    .   GC  G   102.36  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-0.405;DP=11;ExcessHet=0.0000;FS=3.680;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=11.37;ReadPosRankSum=0.272;SOR=0.039 GT:AD:DP:GQ:PL  0/1:4,5:9:94:110,0,94
+pACBB_PL    1355    .   A   AAGC    52.54   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.501;DP=11;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=5.25;ReadPosRankSum=-0.493;SOR=1.609 GT:AD:DP:GQ:PL  0/1:8,2:10:60:60,0,330
+pACBB_PL    1356    .   TTTG    T   52.54   .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.701;DP=11;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=5.25;ReadPosRankSum=-0.253;SOR=1.609 GT:AD:DP:GQ:PL  0/1:8,2:10:60:60,0,330
+pACBB_PL    1362    .   AGGCCTTTTT  A   52.54   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.493;DP=11;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=5.25;ReadPosRankSum=-0.493;SOR=1.609  GT:AD:DP:GQ:PL  0/1:8,2:10:60:60,0,330
+pACBB_PL    1373    .   CGAAAA  C   49.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.114;DP=11;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=4.51;ReadPosRankSum=-0.447;SOR=1.371  GT:AD:DP:GQ:PL  0/1:9,2:11:57:57,0,372
+pACBB_PL    1399    .   AT  A   93.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.328;DP=12;ExcessHet=0.0000;FS=3.310;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=7.80;ReadPosRankSum=-0.816;SOR=2.303  GT:AD:DP:GQ:PL  0/1:6,6:12:99:101,0,149
+pACBB_PL    1989    .   C   G   35.48   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=29.86;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    2418    .   T   C   554.06  .   AC=2;AF=1.00;AN=2;DP=14;ExcessHet=0.0000;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=26.67;SOR=1.765    GT:AD:DP:GQ:PL  1/1:0,14:14:42:568,42,0
+pACBB_PL    3341    .   TA  T   48.60   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.967;DP=3;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=16.20;ReadPosRankSum=0.000;SOR=1.179   GT:AD:DP:GQ:PL  0/1:1,2:3:24:56,0,24
+pACBB_PL    3432    .   GATT    G   115.61  .   AC=1;AF=0.500;AN=2;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=28.90;SOR=2.833   GT:AD:DP:GQ:PL  0/1:1,3:4:32:123,0,32
+pACBB_PL    3448    .   TA  T   166.07  .   AC=2;AF=1.00;AN=2;DP=5;ExcessHet=0.0000;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=27.35;SOR=2.833 GT:AD:DP:GQ:PL  1/1:0,4:4:12:180,12,0
+pACBB_PL    4165    .   CAAAT   C   35.44   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=32.29;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4176    .   TTTTCG  T   35.44   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=29.42;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4182    .   AAAAAG  A   35.43   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=28.13;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4190    .   C   G   35.48   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=34.81;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4191    .   T   TGA 35.43   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=28.71;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4193    .   C   CGGCG   35.43   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=26.97;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4194    .   CAA C   35.43   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=26.69;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4201    .   GGGGGCC G   35.44   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=29.32;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4208    .   T   TCACGC  35.43   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=32.77;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4210    .   T   A   35.47   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=35.30;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4214    .   A   G   35.48   .   AC=2;AF=1.00;AN=2;DP=1;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=33.58;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4217    .   GATAACAA    G   35.43   .   AC=2;AF=1.00;AN=2;DP=2;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=36.61;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4226    .   A   G   35.47   .   AC=2;AF=1.00;AN=2;DP=2;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;QD=32.10;SOR=1.609    GT:AD:DP:GQ:PL  1/1:0,1:1:3:45,3,0
+pACBB_PL    4714    .   GT  G   3062.03 .   AC=2;AF=1.00;AN=2;BaseQRankSum=1.671;DP=77;ExcessHet=0.0000;FS=3.813;MLEAC=2;MLEAF=1.00;MQ=60.00;MQRankSum=0.000;QD=29.96;ReadPosRankSum=0.180;SOR=0.840    GT:AD:DP:GQ:PL  1/1:1,76:77:99:3076,225,0
+pACBB_PL    5211    .   C   CA  1291.03 .   AC=2;AF=1.00;AN=2;DP=29;ExcessHet=0.0000;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=28.82;SOR=2.226    GT:AD:DP:GQ:PL  1/1:0,29:29:87:1305,87,0
+pACBB_PL    5243    .   TA  T   101.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.681;DP=30;ExcessHet=0.0000;FS=8.368;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=3.76;ReadPosRankSum=0.183;SOR=2.833   GT:AD:DP:GQ:PL  0/1:20,7:27:99:109,0,572
+pACBB_PL    5326    .   G   A   1336.06 .   AC=2;AF=1.00;AN=2;DP=30;ExcessHet=0.0000;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=34.83;SOR=2.303    GT:AD:DP:GQ:PL  1/1:0,30:30:90:1350,90,0
+pACBB_PL    5403    .   C   T   1595.06 .   AC=2;AF=1.00;AN=2;DP=44;ExcessHet=0.0000;FS=0.000;MLEAC=2;MLEAF=1.00;MQ=60.00;QD=30.94;SOR=1.127    GT:AD:DP:GQ:PL  1/1:0,44:44:99:1915,132,0
+pACBB_PL    5897    .   AT  A   204.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.194;DP=17;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=12.04;ReadPosRankSum=-0.876;SOR=0.693    GT:AD:DP:GQ:PL  0/1:8,9:17:99:212,0,228
+pACBB_PL    6347    .   GA  G   424.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.727;DP=46;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=9.23;ReadPosRankSum=-1.381;SOR=0.576  GT:AD:DP:GQ:PL  0/1:28,18:46:99:432,0,709
+pACBB_PL    6553    .   GC  G   54.61   .   AC=1;AF=0.500;AN=2;BaseQRankSum=0.000;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=13.65;ReadPosRankSum=0.967;SOR=1.179   GT:AD:DP:GQ:PL  0/1:1,3:4:20:62,0,20
+pACBB_PL    6635    .   T   TC  90.61   .   AC=1;AF=0.500;AN=2;BaseQRankSum=1.150;DP=4;ExcessHet=0.0000;FS=0.000;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=22.65;ReadPosRankSum=1.150;SOR=1.609   GT:AD:DP:GQ:PL  0/1:1,3:4:21:98,0,21
+pACBB_PL    6782    .   AC  A   633.60  .   AC=1;AF=0.500;AN=2;BaseQRankSum=-1.318;DP=67;ExcessHet=0.0000;FS=7.513;MLEAC=1;MLEAF=0.500;MQ=60.00;MQRankSum=0.000;QD=9.46;ReadPosRankSum=-0.145;SOR=1.780 GT:AD:DP:GQ:PL  0/1:38,29:67:99:641,0,1013</code></pre>
 </div>
 </div>
 </section>
@@ -1561,14 +1606,838 @@ pACBB_PL    6782    .   AC  A   2099.64 .   AC=1;AF=0.500;AN=2;BaseQRankSum=-2.0
 <ul>
 <li>Variant Quality Score Recalibration or the VQSR strategy.</li>
 </ul>
-<div id="cell-81" class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>output_table <span class="op">=</span> vcf_file.replace(<span class="st">"vcf"</span>, <span class="st">"csv"</span>)</span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>exestr <span class="op">=</span> <span class="ss">f"gatk VariantsToTable -R </span><span class="sc">{</span>reference_filename<span class="sc">}</span><span class="ss"> -V </span><span class="sc">{</span>vcf_file<span class="sc">}</span><span class="ss"> -F CHROM -F POS -F FILTER -F TYPE -GF AD -GF DP --show-filtered -O </span><span class="sc">{</span>output_table<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(exestr)</span>
-<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="co">#!udocker --allow-root run -v=/content/drive/MyDrive/design_build:/design_build gatk bash -c "{exestr}"</span></span>
-<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-81" class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1717559138323,&quot;user_tz&quot;:-540,&quot;elapsed&quot;:9197,&quot;user&quot;:{&quot;displayName&quot;:&quot;haseong kim&quot;,&quot;userId&quot;:&quot;15555769759698200025&quot;}}" data-outputid="e6d83b19-f863-48c2-b8ab-bc6fd2f234ed" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>output_table <span class="op">=</span> vcf_file.replace(<span class="st">"vcf"</span>, <span class="st">"csv"</span>)</span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>exestr <span class="op">=</span> <span class="ss">f"gatk VariantsToTable -R </span><span class="sc">{</span>reference_filename<span class="sc">}</span><span class="ss"> -V </span><span class="sc">{</span>vcf_file<span class="sc">}</span><span class="ss"> -F CHROM -F POS -F FILTER -F TYPE -GF AD -GF DP --show-filtered -O </span><span class="sc">{</span>output_table<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(exestr)</span></span>
+<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>udocker <span class="op">--</span>allow<span class="op">-</span>root run <span class="op">-</span>v<span class="op">=/</span>content<span class="op">/</span>drive<span class="op">/</span>MyDrive<span class="op">/</span>design_build:<span class="op">/</span>design_build gatk bash <span class="op">-</span>c <span class="st">"</span><span class="sc">{exestr}</span><span class="st">"</span></span>
+<span id="cb105-6"><a href="#cb105-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> 
+ ****************************************************************************** 
+ *                                                                            * 
+ *               STARTING 43258f40-d39f-316f-8a89-594ce69950cc                * 
+ *                                                                            * 
+ ****************************************************************************** 
+ executing: bash
+Using GATK jar /gatk/gatk-package-4.5.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.5.0.0-local.jar VariantsToTable -R /design_build/pACBB_PL.fasta -V /design_build/pACBB_PL.vcf -F CHROM -F POS -F FILTER -F TYPE -GF AD -GF DP --show-filtered -O /design_build/pACBB_PL.csv
+03:45:37.746 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.5.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+03:45:38.175 INFO  VariantsToTable - ------------------------------------------------------------
+03:45:38.180 INFO  VariantsToTable - The Genome Analysis Toolkit (GATK) v4.5.0.0
+03:45:38.180 INFO  VariantsToTable - For support and documentation go to https://software.broadinstitute.org/gatk/
+03:45:38.182 INFO  VariantsToTable - Executing as root@adbb3a1816f8 on Linux v6.1.85+ amd64
+03:45:38.182 INFO  VariantsToTable - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+03:45:38.183 INFO  VariantsToTable - Start Date/Time: June 5, 2024 at 3:45:37 AM GMT
+03:45:38.183 INFO  VariantsToTable - ------------------------------------------------------------
+03:45:38.183 INFO  VariantsToTable - ------------------------------------------------------------
+03:45:38.185 INFO  VariantsToTable - HTSJDK Version: 4.1.0
+03:45:38.185 INFO  VariantsToTable - Picard Version: 3.1.1
+03:45:38.185 INFO  VariantsToTable - Built for Spark Version: 3.5.0
+03:45:38.186 INFO  VariantsToTable - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+03:45:38.186 INFO  VariantsToTable - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+03:45:38.186 INFO  VariantsToTable - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+03:45:38.187 INFO  VariantsToTable - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+03:45:38.187 INFO  VariantsToTable - Deflater: IntelDeflater
+03:45:38.187 INFO  VariantsToTable - Inflater: IntelInflater
+03:45:38.188 INFO  VariantsToTable - GCS max retries/reopens: 20
+03:45:38.188 INFO  VariantsToTable - Requester pays: disabled
+03:45:38.189 INFO  VariantsToTable - Initializing engine
+03:45:38.727 INFO  FeatureManager - Using codec VCFCodec to read file file:///design_build/pACBB_PL.vcf
+03:45:38.814 INFO  VariantsToTable - Done initializing engine
+03:45:38.826 WARN  VariantsToTable - Allele-specific fields will only be split if splitting multi-allelic variants is specified (`--split-multi-allelic` or `-SMA`
+03:45:38.827 INFO  ProgressMeter - Starting traversal
+03:45:38.828 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+03:45:38.896 INFO  ProgressMeter -             unmapped              0.0                    52          47272.7
+03:45:38.896 INFO  ProgressMeter - Traversal complete. Processed 52 total variants in 0.0 minutes.
+03:45:38.897 INFO  VariantsToTable - Shutting down engine
+[June 5, 2024 at 3:45:38 AM GMT] org.broadinstitute.hellbender.tools.walkers.variantutils.VariantsToTable done. Elapsed time: 0.02 minutes.
+Runtime.totalMemory()=312475648</code></pre>
 </div>
+</div>
+<div id="cell-82" class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1717559141543,&quot;user_tz&quot;:-540,&quot;elapsed&quot;:361,&quot;user&quot;:{&quot;displayName&quot;:&quot;haseong kim&quot;,&quot;userId&quot;:&quot;15555769759698200025&quot;}}" data-outputid="4ae3f475-aa0a-424a-8788-7de1d6d660a2" data-execution_count="147">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>ls <span class="op">-</span>alh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>total 37M
+drwx------ 2 root root 4.0K Jun  5 02:26 bam
+-rw------- 1 root root  19M Jun  5 01:53 FAT01036_pass_barcode01_5eb57f2c_2b75e8f5_0.fastq.gz
+-rw------- 1 root root  19M Jun  5 01:53 FAT01036_pass_barcode01_5eb57f2c_2b75e8f5_1.fastq.gz
+drwx------ 2 root root 4.0K Jun  5 02:56 info
+drwx------ 2 root root 4.0K Jun  5 02:14 .ipynb_checkpoints
+-rw------- 1 root root   16 Jun  5 02:53 pACBB_PL.bed
+-rw------- 1 root root 1.7K Jun  5 03:45 pACBB_PL.csv
+-rw------- 1 root root  108 Jun  5 03:06 pACBB_PL.dict
+-rw------- 1 root root 7.2K Jun  5 01:56 pACBB_PL.fasta
+-rw------- 1 root root   23 Jun  5 02:53 pACBB_PL.fasta.fai
+-rw------- 1 root root  15K Jun  5 01:53 pACBB-PL-from_EcoRI_hs.gb
+-rw------- 1 root root  22K Jun  5 03:44 pACBB_PL.vcf
+-rw------- 1 root root  285 Jun  5 03:44 pACBB_PL.vcf.idx
+drwx------ 2 root root 4.0K Jun  5 02:24 sam
+drwx------ 2 root root 4.0K Jun  5 03:23 sort</code></pre>
+</div>
+</div>
+<div id="cell-83" class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1717559334143,&quot;user_tz&quot;:-540,&quot;elapsed&quot;:687,&quot;user&quot;:{&quot;displayName&quot;:&quot;haseong kim&quot;,&quot;userId&quot;:&quot;15555769759698200025&quot;}}" data-outputid="03c3412f-9082-4044-893d-a81c1aa1b6ff" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"pACBB_PL.csv"</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>data</span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="150">
+<div>
+
+  <div id="df-bada8f3a-33e6-4c45-9fc1-d0ad694a2bcc" class="colab-df-container">
+    <div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CHROM</th>
+<th data-quarto-table-cell-role="th">POS</th>
+<th data-quarto-table-cell-role="th">FILTER</th>
+<th data-quarto-table-cell-role="th">TYPE</th>
+<th data-quarto-table-cell-role="th">pACBB-PL.AD</th>
+<th data-quarto-table-cell-role="th">pACBB-PL.DP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>pACBB_PL</td>
+<td>77</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,37</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>pACBB_PL</td>
+<td>132</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>2,3</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>pACBB_PL</td>
+<td>134</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>2,3</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>pACBB_PL</td>
+<td>135</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>3,2</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>pACBB_PL</td>
+<td>136</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>pACBB_PL</td>
+<td>138</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>pACBB_PL</td>
+<td>149</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>pACBB_PL</td>
+<td>153</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>2,2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>pACBB_PL</td>
+<td>157</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>pACBB_PL</td>
+<td>160</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>pACBB_PL</td>
+<td>162</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>pACBB_PL</td>
+<td>1161</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>2,2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>pACBB_PL</td>
+<td>1181</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>pACBB_PL</td>
+<td>1204</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>pACBB_PL</td>
+<td>1206</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,7</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>pACBB_PL</td>
+<td>1213</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>8,4</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>pACBB_PL</td>
+<td>1326</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>8,2</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>pACBB_PL</td>
+<td>1339</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>9,2</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>pACBB_PL</td>
+<td>1347</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>4,5</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>pACBB_PL</td>
+<td>1355</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>8,2</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>pACBB_PL</td>
+<td>1356</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>8,2</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>pACBB_PL</td>
+<td>1362</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>8,2</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>pACBB_PL</td>
+<td>1373</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>9,2</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>pACBB_PL</td>
+<td>1399</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>6,6</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>pACBB_PL</td>
+<td>1989</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>pACBB_PL</td>
+<td>2418</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,14</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>pACBB_PL</td>
+<td>3341</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>pACBB_PL</td>
+<td>3432</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>pACBB_PL</td>
+<td>3448</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>pACBB_PL</td>
+<td>4165</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>pACBB_PL</td>
+<td>4176</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>pACBB_PL</td>
+<td>4182</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>pACBB_PL</td>
+<td>4190</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>pACBB_PL</td>
+<td>4191</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>pACBB_PL</td>
+<td>4193</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>pACBB_PL</td>
+<td>4194</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>pACBB_PL</td>
+<td>4201</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>pACBB_PL</td>
+<td>4208</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>pACBB_PL</td>
+<td>4210</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">39</td>
+<td>pACBB_PL</td>
+<td>4214</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40</td>
+<td>pACBB_PL</td>
+<td>4217</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">41</td>
+<td>pACBB_PL</td>
+<td>4226</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">42</td>
+<td>pACBB_PL</td>
+<td>4714</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,76</td>
+<td>77</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">43</td>
+<td>pACBB_PL</td>
+<td>5211</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>0,29</td>
+<td>29</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">44</td>
+<td>pACBB_PL</td>
+<td>5243</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>20,7</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">45</td>
+<td>pACBB_PL</td>
+<td>5326</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,30</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">46</td>
+<td>pACBB_PL</td>
+<td>5403</td>
+<td>PASS</td>
+<td>SNP</td>
+<td>0,44</td>
+<td>44</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">47</td>
+<td>pACBB_PL</td>
+<td>5897</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>8,9</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">48</td>
+<td>pACBB_PL</td>
+<td>6347</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>28,18</td>
+<td>46</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">49</td>
+<td>pACBB_PL</td>
+<td>6553</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">50</td>
+<td>pACBB_PL</td>
+<td>6635</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>1,3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">51</td>
+<td>pACBB_PL</td>
+<td>6782</td>
+<td>PASS</td>
+<td>INDEL</td>
+<td>38,29</td>
+<td>67</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-bada8f3a-33e6-4c45-9fc1-d0ad694a2bcc')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-bada8f3a-33e6-4c45-9fc1-d0ad694a2bcc button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-bada8f3a-33e6-4c45-9fc1-d0ad694a2bcc');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-3b8b0fa9-3b30-4fc9-9033-725e831bbd30">
+  <button class="colab-df-quickchart" onclick="quickchart('df-3b8b0fa9-3b30-4fc9-9033-725e831bbd30')" title="Suggest charts" style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-3b8b0fa9-3b30-4fc9-9033-725e831bbd30 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_0b1ff841-91c5-4031-a320-c1114bfca897">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('data')" title="Generate code using this dataframe." style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"></path>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_0b1ff841-91c5-4031-a320-c1114bfca897 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('data');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<ul>
+<li>https://igv.org/</li>
+</ul>
 
 
 </section>
